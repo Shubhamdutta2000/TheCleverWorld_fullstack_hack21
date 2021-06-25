@@ -41,7 +41,7 @@ export const createStandPoint = asyncHandler(async (req, res) => {
 /**
  * expected req.body
  * {
- *     SelectedPoints: [{
+ *     SelectedPoints: {
  *              "_id": "473873"
  *              name: "xyz",
  *              location: "abc",
@@ -49,50 +49,38 @@ export const createStandPoint = asyncHandler(async (req, res) => {
  *                  coordinates: [80.7397, 22.383]
  *                  },
  *              numberOfUser: 30
- *          }, {}, {}]
+ *          }
  * }
  *
  *
- * [[89,89], [50, 67], [78, 90], [60,90]]
+ * [[89,89]]
  *
- * [89,89] => [{},{},{}]
- * [50, 67] => [{},{},{}]
  */
 
 export const createDrive = asyncHandler(async (req, res) => {
-  const driveStandPoints = req.body;
+  const { driveStandPoint } = req.body;
 
-  const coordArray = [];
   const foundUsers = [];
 
-  // flatten object to get array of coordinates
-  driveStandPoints.forEach((drivePoint) => {
-    coordArray.push(drivePoint.geometry.coordinates);
-  });
-
-  if (coordArray.length === 0) {
+  if (driveStandPoint === null) {
     res.status(404);
     throw new Error("No drive points found ");
   }
 
-  // loop through each data point and query for user
-  coordArray.forEach((coordinate) => {
-    const usersWithinRange = await User.aggregate([
-      {
-        $geoNear: {
-          near: {
-            type: "Point",
-            coordinates: coordinate,
-          },
-          distanceField: "dist.calculated",
-          maxDistance: 4000,
-          spherical: true,
+  const usersWithinRange = await User.aggregate([
+    {
+      $geoNear: {
+        near: {
+          type: "Point",
+          coordinates: driveStandPoint.geometry.coordinates,
         },
+        distanceField: "dist.calculated",
+        maxDistance: 2000,
+        spherical: true,
       },
-    ]);
-
-    foundUsers.push(...usersWithinRange.email);
-  });
+    },
+  ]);
+  foundUsers.push(...usersWithinRange);
 
   if (foundUsers.length === 0) {
     res.status(404);

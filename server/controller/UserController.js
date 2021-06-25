@@ -99,30 +99,30 @@ export const getUserProfile = async (req, res, next) => {
 // @route:  GET /preferences
 // @access  Private
 /* 
-  // Call this API for each preferences 
-      preferences: {
+      preferences: [{
         order: Number,
-        stand_point: String,
-      }
+        standPointId: id,
+      }]
 */
 
 export const choosePreference = async (req, res, next) => {
   try {
     const userId = req.user._id;
-    const { preference } = req.body;
+    const { preferences } = req.body;
 
     // Check the user by userId
-    const user = await UserModel.findById(userId);
+    const user = await User.findById(userId).populate("preferences");
 
     if (user) {
-      // Get Stand Id by checking Stand name
-      const StandPoint = await standPoint.findOne({
-        name: preference.stand_point,
+      preferences.forEach((preference) => {
+        // Add standPointId and order to preferences array
+        user.preferences.push({
+          order: preference.order,
+          point: preference.standPointId,
+        });
+        user.save();
       });
-
-      // Add stand_point to preferences array
-      user.preferences.push(StandPoint._id);
-      user.save();
+      res.status(200).json(user);
     } else {
       res.status(403);
       throw new Error("User not matched");
