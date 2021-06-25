@@ -59,7 +59,10 @@ const UserSchema = new mongoose.Schema(
     adhaarNumber: {
       type: String,
     },
-
+    vaccine: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Vaccine",
+    },
     geometry: GeoSchema,
   },
   { timestamps: true }
