@@ -7,8 +7,9 @@ export const useStyles = makeStyles((theme) => ({
     marginBottom: "4rem",
   },
   leftImg: {
-    width: "95%",
-    marginTop: "-5rem",
+    width: "100%",
+    marginTop: "1rem",
+    height:'100%'
   },
   heading: {
     textAlign: "left",

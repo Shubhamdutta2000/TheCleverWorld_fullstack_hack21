@@ -19,7 +19,7 @@ export const useStyles = makeStyles((theme) => ({
   },
 
   map: {
-    width: "40%",
-    marginLeft: "30%",
+    width: "60%",
+    //marginLeft: "30%",
   },
 }));

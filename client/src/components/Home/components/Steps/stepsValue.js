@@ -11,20 +11,17 @@ export function getSteps() {
   export function getStepContent(step) {
     switch (step) {
       case 0:
-        return `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi`;
+        return `Register with your details to our application`;
       case 1:
-        return `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi`;
+        return `Give your prefered center on where you want to get vaccinated`;
       case 2:
-        return `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi`;
+        return `The government will set the dates and center so waituntill you get the notification for the vaccination`;
   
       case 3:
-        return `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi`;
+        return `For transpirancy we have set tracking device with mobile Vaccination Van which can track via Map so the user can have a haste free response for vaccination`;
   
       case 4:
-        return `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi`;
-  
-      case 5:
-        return `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi`;
+        return `The most important part of our mission #VaccinationForAll`;
   
       default:
         return "Unknown step";

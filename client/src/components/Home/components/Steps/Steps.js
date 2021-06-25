@@ -17,10 +17,8 @@ export default function VerticalLinearStepper() {
   return (
     <>
       <Grid container className={classes.root}>
+        
         <Grid md={7}>
-          <img className={classes.leftImg} src={Plag} alt="Plagarism" />
-        </Grid>
-        <Grid md={5}>
           <Typography component="h3" variant="h4" className={classes.heading}>
             How It Works?
           </Typography>
@@ -30,7 +28,7 @@ export default function VerticalLinearStepper() {
                 <StepLabel>
                   <Typography
                     component="h3"
-                    variant="h4"
+                    variant="h5"
                     className={classes.stepLabel}
                   >
                     {label}
@@ -44,6 +42,9 @@ export default function VerticalLinearStepper() {
               </Step>
             ))}
           </Stepper>
+        </Grid>
+        <Grid md={5}>
+          <img className={classes.leftImg} src={Plag} alt="Plagarism" />
         </Grid>
       </Grid>
     </>

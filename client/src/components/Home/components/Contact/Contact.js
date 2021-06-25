@@ -8,7 +8,8 @@ import Grid from "@material-ui/core/Grid";
 //Styling
 import { useStyles } from "../../../../style/Home/Contact";
 import Map from "../../../../assets/landing-page/map.png";
-
+import HomeWorkIcon from '@material-ui/icons/HomeWork';
+import PhoneIcon from '@material-ui/icons/Phone';
 function Footer() {
   const classes = useStyles();
 
@@ -20,16 +21,21 @@ function Footer() {
           Contact Us
         </Typography>
         <Grid container>
+        <Grid item md={5}>
+            <img src={Map} className={classes.map} alt="Map" />
+          </Grid>
           <Grid item md={6}>
+          <HomeWorkIcon color='#fff'/>
             <Typography varient="h5" className={classes.address}>
               Main Campus (Kolkata) HEAD OFFICE (College Street Campus) : 90/6A,
               Mahatma Gandhi Road, 1st Floor; Kolkata - 700 007 Rashbehari
               Branch Office : 162, S. P. Mukherjee Road, Rashbehari Avenue
               (Ground Floor), Kolkata - 700 026
             </Typography>
-          </Grid>
-          <Grid item md={6}>
-            <img src={Map} className={classes.map} alt="Map" />
+            <PhoneIcon color='#fff'/>
+            <Typography varient="h5" className={classes.address}>
+             Helpline: 1800 1800 18000
+            </Typography>
           </Grid>
         </Grid>
       </div>

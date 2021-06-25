@@ -6,7 +6,7 @@ function Footer() {
     <div style={{ color: "#fff", padding: "0.4rem 0" }}>
       <Container>
        <Typography variant='subtitle2' align='center'>        © Copyrights
-        <Link to="/home" style={{ textDecoration: "none", color: "skyblue" }}>
+        <Link to="/" style={{ textDecoration: "none", color: "skyblue" }}>
           EasyJaber
         </Link>
         2021. All rights reserved.</Typography>
