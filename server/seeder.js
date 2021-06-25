@@ -2,8 +2,9 @@ import mongoose from "mongoose";
 import { connectDB } from "./config/db.js";
 
 import dotenv from "dotenv";
+
 import StandPoint from "./models/standPoint.js";
-import UserModel from "./models/userModel.js";
+import User from "./models/userModel.js";
 
 import { mockStandPoints } from "./mockData/standpoint.js";
 import { mockUsers } from "./mockData/user.js";
@@ -19,10 +20,11 @@ const importData = async () => {
   try {
     // delete stuff before inserting new stuff
     await StandPoint.deleteMany();
+    await User.deleteMany();
 
     // insert new stuff
     await StandPoint.insertMany(mockStandPoints);
-    await UserModel.insertMany(mockUsers);
+    await User.insertMany(mockUsers);
 
     // extract admin user from DB (first in the array). get it into our mock foodreq array.
     // const volunteerUsers = createdUsers[0]._id;
@@ -40,6 +42,7 @@ const destroyData = async () => {
   try {
     // delete stuff
     await StandPoint.deleteMany();
+    await User.deleteMany();
 
     console.info("data destroyed");
     process.exit(0);
