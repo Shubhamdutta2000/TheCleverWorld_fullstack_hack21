@@ -6,7 +6,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node --experimental-specifier-resolution=node index.js",
-    "dev": "nodemon --experimental-specifier-resolution=node index.js"
+    "dev": "nodemon --experimental-specifier-resolution=node index.js",
+    "data:import": "node ./seeder.js ",
+    "data:destroy": "node ./seeder.js -d "
   },
   "author": "Soumava Banerjee, Shubham Dutta, Prasun Das",
   "license": "ISC",

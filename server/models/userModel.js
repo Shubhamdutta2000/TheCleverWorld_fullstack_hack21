@@ -1,4 +1,4 @@
-import mongoose, { Mongoose } from "mongoose";
+import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 
 // Location schema for the user
@@ -62,6 +62,13 @@ const UserSchema = new mongoose.Schema(
       required: [true, "Your password cannot be blank"],
     },
     geometry: GeoSchema,
+    // for easy viewing in the front end
+    mapViewStandPoints: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "StandPoint",
+      },
+    ],
   },
   { timestamps: true }
 );
