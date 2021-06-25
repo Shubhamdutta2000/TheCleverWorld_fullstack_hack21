@@ -99,10 +99,10 @@ export const getUserProfile = async (req, res, next) => {
 // @route:  GET /preferences
 // @access  Private
 /* 
-      preferences: [{
+      preferences: {
         order: Number,
         standPointId: id,
-      }]
+      }
 */
 
 export const choosePreference = async (req, res, next) => {
