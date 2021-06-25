@@ -4,17 +4,20 @@ import { MuiThemeProvider, createMuiTheme } from "@material-ui/core";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import theme from "./theme";
 
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+
 function App() {
   return (
     <div>
       <MuiThemeProvider theme={theme}>
         <CssBaseline />
         <BrowserRouter>
-          
+          <Navbar />
           <Switch>
-            <Route exact path="/" component={} />
+            
           </Switch>
-          
+          <Footer />
         </BrowserRouter>
       </MuiThemeProvider>
     </div>
