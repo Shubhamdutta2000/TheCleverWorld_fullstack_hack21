@@ -6,7 +6,7 @@ import theme from "./theme";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-
+import Home from "./components/Home";
 function App() {
   return (
     <div>
@@ -15,7 +15,7 @@ function App() {
         <BrowserRouter>
           <Navbar />
           <Switch>
-            
+            <Route exact path="/" component={Home} />
           </Switch>
           <Footer />
         </BrowserRouter>

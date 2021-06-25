@@ -46,7 +46,7 @@ export const useStyles = makeStyles((theme) => ({
   },
 
   mobilenavItems: {
-    color: "#4D7178",
+    color: theme.palette.primary.main,
     flexGrow: 0,
     fontWeight: 600,
     fontSize: "1rem",
