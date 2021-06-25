@@ -15,11 +15,8 @@ const HeroSection = () => {
           Easy Jaber
         </Typography>
         <Typography className={classes.leftPara} variant="h5" component="p">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia
-          commodi eaque recus andae eveniet exm dolor sit amet, consectetur
-          adipisicing elit. Mollitia commodi eaque recus andae eveniet e m dolor
-          sit amet, consectetur adipisicing elit. Mollitia commodi eaque recus
-          andae eveniet e <br />
+        A mobile covid vaccination strategy using mobile vans powered by real time logistics data and modular decision making framework. 
+        Ordinary people can get easy access to their covid vaccine with just a simple register
         </Typography>
         <Link to="/Register" style={{ textDecoration: "none", color: "#fff" }}>
           <Button
@@ -37,7 +34,7 @@ const HeroSection = () => {
         </Link>
       </Grid>
 
-      <Grid item md={5}>
+      <Grid item md={4}>
         <img className={classes.imageIllustration} src={HeroImage} />
       </Grid>
     </Grid>
