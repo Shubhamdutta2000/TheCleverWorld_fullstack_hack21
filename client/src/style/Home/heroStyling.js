@@ -23,7 +23,7 @@ export const useStyles = makeStyles((theme) => ({
     opacity: 0.8,
   },
   register: {
-    padding: "0.5rem 2rem 0.5rem 2rem",
+    padding: "0.5rem 1rem",
     width: "16rem",
     margin: "0.5rem 0 1rem 0",
     borderRadius: "40px",
@@ -39,7 +39,7 @@ export const useStyles = makeStyles((theme) => ({
     },
   },
   login: {
-    padding: "0.6rem 2rem 0.6rem 2rem",
+    padding: "0.6rem 1rem",
     margin: "0.5rem 0 1rem 0",
     width: "15rem",
     borderRadius: "40px",
