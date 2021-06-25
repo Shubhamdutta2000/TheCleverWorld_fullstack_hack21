@@ -1,2 +1,2 @@
 export * from "./verifyToken.js";
-export * from "./errorhandling.js";
+export * from "./errorHandling.js";

@@ -5,7 +5,7 @@ import * as dotenv from "dotenv";
 
 import { connectDB } from "./config/db.js";
 import { homeRouter, userRouter } from "./routes/index.js";
-import { errorhandler, NotFound } from "./middlewares/index.js";
+import { NotFound, errorhandler } from "./middlewares/";
 dotenv.config();
 
 process.env.NODE_ENV === "test" ? connectLocalDB() : connectDB();
