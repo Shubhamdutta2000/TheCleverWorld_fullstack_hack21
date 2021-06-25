@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { Mongoose } from "mongoose";
 import bcrypt from "bcrypt";
 
 // Location schema for the user
@@ -18,23 +18,44 @@ const UserSchema = new mongoose.Schema(
     name: {
       type: String,
     },
-    phn_no: {
-        type: Number,
-    },
-    preferences: {
+    email: {
       type: String,
+      unique: true,
+      match: [
+        /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+        "Please fill a valid email address",
+      ],
     },
-    stand_point: {
-      type: String,
+    phoneNumber: {
+      type: Number,
+      unique: true,
+      validate: {
+        validator: function (v) {
+          return /d{10}/.test(v);
+        },
+        message: "{VALUE} is not a valid 10 digit number!",
+      },
+    },
+    preferences: [
+      {
+        order: { type: Number, default: 1 },
+        point: { type: mongoose.Schema.Types.ObjectId, ref: "StandPoint" },
+      },
+    ],
+    standPointAssigned: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "StandPoint",
     },
     isVaccinated: {
       type: Boolean,
+      default: false,
     },
-    serial_no: {
+    isAuthority: {
+      type: Boolean,
+      default: false,
+    },
+    serialNumber: {
       type: Number,
-    },
-    selected_stand_point: {
-      type: String,
     },
     password: {
       type: String,
