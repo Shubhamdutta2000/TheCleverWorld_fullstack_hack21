@@ -29,12 +29,7 @@ const UserSchema = new mongoose.Schema(
     phoneNumber: {
       type: Number,
       unique: true,
-      validate: {
-        validator: function (v) {
-          return /d{10}/.test(v);
-        },
-        message: "{VALUE} is not a valid 10 digit number!",
-      },
+      maxLength: 10,
     },
     preferences: [
       {
@@ -60,6 +55,13 @@ const UserSchema = new mongoose.Schema(
     password: {
       type: String,
       required: [true, "Your password cannot be blank"],
+    },
+    adhaarNumber: {
+      type: String,
+    },
+    vaccine: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Vaccine",
     },
     geometry: GeoSchema,
     // for easy viewing in the front end

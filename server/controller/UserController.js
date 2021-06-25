@@ -20,6 +20,8 @@ export const authUser = async (req, res) => {
       _id: user._id,
       name: user.name,
       email: user.email,
+      phoneNumber: user.phoneNumber,
+      adhaarNumber: user.adhaarNumber,
       geometry: user.geometry,
       token: generateToken(user._id),
     });
@@ -35,7 +37,8 @@ export const authUser = async (req, res) => {
  * @public
  */
 export const createUser = async (req, res) => {
-  const { name, phn_no, password, geometry } = req.body;
+  const { name, phoneNumber, adhaarNumber, email, password, geometry } =
+    req.body;
   const user = await User.findOne({ email: email });
 
   if (user) {
@@ -45,7 +48,9 @@ export const createUser = async (req, res) => {
 
   const newUser = await User.create({
     name,
-    phn_no,
+    email,
+    adhaarNumber,
+    phoneNumber,
     password,
     geometry,
   });
@@ -56,12 +61,36 @@ export const createUser = async (req, res) => {
     res.status(201).json({
       _id: newUser._id,
       name: newUser.name,
-      phn_no: newUser.phn_no,
+      email: newUser.email,
+      phoneNumber: newUser.phoneNumber,
+      adhaarNumber: newUser.adhaarNumber,
       geometry: newUser.geometry,
       token: generateToken(newUser._id),
     });
   } else {
     res.status(400);
     throw new Error("Unable to create user");
+  }
+};
+
+// @purpose:   Get User Profile
+// @route:  GET /user/profile
+// @access  Private
+
+export const getUserProfile = async (req, res, next) => {
+  try {
+    const user = await User.findById(req.user._id).populate("vaccine");
+    res.json({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      phoneNumber: user.phoneNumber,
+      adhaarNumber: user.adhaarNumber,
+      geometry: user.geometry,
+      vaccine: user.vaccine,
+    });
+  } catch (error) {
+    res.status(404);
+    next(error);
   }
 };
