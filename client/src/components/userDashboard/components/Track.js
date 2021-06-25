@@ -5,6 +5,7 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import NativeSelect from '@material-ui/core/NativeSelect';
 import {useStyles} from '../../../style/userDashboard/Track'
+import { Button } from '@material-ui/core';
 function Track() {
 ///for the drop  down option
 const classes = useStyles();
@@ -53,6 +54,52 @@ const classes = useStyles();
     <Typography variant='h5'>
         Sellect Your prefferd location
     </Typography>
+<Container>
+    <br/>
+    <Typography variant='h5' color='primary'>
+        Location 1
+    </Typography>
+    <FormControl className={classes.formControl}>
+        <NativeSelect
+          value={state.age}
+          onChange={handleChange}
+          name="age"
+          inputProps={{ 'aria-label': 'age' }}
+          className={classes.selectEmpty}
+        >
+          <option value="">None</option>
+          <option value={10}>Ten</option>
+          <option value={20}>Twenty</option>
+          <option value={30}>Thirty</option>
+        </NativeSelect>
+        <FormHelperText>With visually hidden label</FormHelperText>
+      </FormControl>
+
+
+      <Typography variant='h5' color='primary'>
+        Location 2
+    </Typography>
+    <FormControl className={classes.formControl}>
+        <NativeSelect
+          value={state.age}
+          onChange={handleChange}
+          name="age"
+          inputProps={{ 'aria-label': 'age' }}
+          className={classes.selectEmpty}
+        >
+          <option value="">None</option>
+          <option value={10}>Ten</option>
+          <option value={20}>Twenty</option>
+          <option value={30}>Thirty</option>
+        </NativeSelect>
+        <FormHelperText>With visually hidden label</FormHelperText>
+      </FormControl>
+
+
+
+      <Typography variant='h5' color='primary'>
+        Location 3
+    </Typography>
     <FormControl className={classes.formControl}>
         <NativeSelect
           value={state.age}
@@ -70,11 +117,9 @@ const classes = useStyles();
       </FormControl>
 </Container>
 
-
-
-
-
-
+<br/>
+<Button variant='contained' color='primary'>Register</Button>
+</Container>
     </>
   );
 }
