@@ -20,12 +20,13 @@ import { useFormik } from 'formik';
 import { Link, useHistory } from 'react-router-dom';
 
 import FormContainer from '../components/FormContainer';
-import useStyles from './styles';
+import useStyles from './style';
 import registerSvg from '../../../assets/register.svg';
 
 //Redux
 import { useDispatch, useSelector } from 'react-redux';
 import { registerNewUser } from '../../../redux/action-creators';
+import { Container } from '@material-ui/core';
 
 const Registration = ({ location }) => {
   const classes = useStyles();
@@ -106,6 +107,7 @@ const Registration = ({ location }) => {
 
   return (
     <>
+    <Container >
       {loading && (
         <LinearProgress
           style={{ marginTop: '4px', marginBottom: '4px' }}
@@ -313,6 +315,7 @@ const Registration = ({ location }) => {
           </form>
         </div>
       </FormContainer>
+      </Container>
     </>
   );
 };

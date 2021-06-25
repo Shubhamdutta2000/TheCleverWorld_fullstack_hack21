@@ -16,7 +16,7 @@ import FormContainer from '../components/FormContainer';
 import * as yup from 'yup';
 import { useFormik } from 'formik';
 
-import useStyles from './styles';
+import useStyles from './style';
 import loginSvg from '../../../assets/login.svg';
 import { LinearProgress } from '@material-ui/core';
 import { Alert } from '@material-ui/lab';
@@ -24,6 +24,7 @@ import { Alert } from '@material-ui/lab';
 // Redux Stuff
 import { useDispatch, useSelector } from 'react-redux';
 import { signInUser } from '../../../redux/action-creators';
+import { Container } from '@material-ui/core';
 
 const SignIn = ({ location }) => {
   const classes = useStyles();
@@ -43,8 +44,8 @@ const SignIn = ({ location }) => {
 
   const formik = useFormik({
     initialValues: {
-      email: 'soumava.rivu@gmail.com',    //volunteer.test@hungrily.com
-      password: 'frost1234',                   //test1234
+      email: '',    
+      password: '',                   
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
@@ -61,6 +62,7 @@ const SignIn = ({ location }) => {
 
   return (
     <>
+    <Container>
       {loading && (
         <LinearProgress
           style={{ marginTop: '4px', marginBottom: '4px' }}
@@ -91,7 +93,7 @@ const SignIn = ({ location }) => {
             }}
             className={classes.form}
             noValidate
-            autoComplete="off"
+            autoComplete="on"
           >
             <TextField
               variant="outlined"
@@ -155,15 +157,12 @@ const SignIn = ({ location }) => {
                     </span>
                   </Typography>
                 </Link>
-                <Typography component='span' color='primary' >
-                        Sign in with these credentials for Volunteer login  
-                        <p>To login as User please register as a user with a fake email address</p>
-                </Typography>
               </Grid>
             </Grid>
           </form>
         </div>
       </FormContainer>
+      </Container>
     </>
   );
 };
