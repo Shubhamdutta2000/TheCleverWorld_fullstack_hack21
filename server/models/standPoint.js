@@ -25,12 +25,6 @@ const StandPointSchema = new mongoose.Schema(
       type: Number,
       default: 0,
     },
-    assignedUsers: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
-      },
-    ],
   },
   { timestamps: true }
 );
