@@ -48,7 +48,10 @@ function Navbar() {
           {isMobile ? (
             <>
               {/*Nav items*/}
-
+              <Link to="/Dashboard" style={{ textDecoration: "none" }}>
+                <Typography className={classes.navItems}>Dashboard</Typography>
+              </Link>
+              
               <Link to={"/Login"} style={{ textDecoration: "none" }}>
                 <Typography variant="body2" className={classes.navItems}>
                   Login
@@ -90,6 +93,13 @@ function Navbar() {
                     <Link to="/register" style={{ textDecoration: "none" }}>
                       <ListItemText className={classes.mobilenavItems}>
                         Register
+                      </ListItemText>
+                    </Link>
+                  </ListItem>
+                  <ListItem button>
+                    <Link to="/Dashboard" style={{ textDecoration: "none" }}>
+                      <ListItemText className={classes.mobilenavItems}>
+                        Dashboard
                       </ListItemText>
                     </Link>
                   </ListItem>
