@@ -64,6 +64,13 @@ const UserSchema = new mongoose.Schema(
       ref: "Vaccine",
     },
     geometry: GeoSchema,
+    // for easy viewing in the front end
+    mapViewStandPoints: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "StandPoint",
+      },
+    ],
   },
   { timestamps: true }
 );
