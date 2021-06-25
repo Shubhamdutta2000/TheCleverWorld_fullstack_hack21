@@ -1,4 +1,4 @@
-
+#########################  user Signup   ####################
 # POST http://localhost:5000/api/users/signup
 # Content-Type: application/json
 
@@ -14,6 +14,8 @@
 #     }
 # }
 
+
+#########################  USER login   ###############################
 # POST http://localhost:5000/api/users/login
 # Content-Type: application/json
 
@@ -22,6 +24,81 @@
 #     "password": "test12"
 # }
 
-GET http://localhost:5000/api/users/profile
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZDVlOTcwNjI5YWJjMTM3OGY4NDAwZCIsImlhdCI6MTYyNDYzMTk0MiwiZXhwIjoxNjI0NjM1NTQyfQ.QAnKR25JLY-za5FhgIgKB8G7vCeYAGfIyAX2BHiPmog
 
+
+########################  USER profile  ###############################
+# GET http://localhost:5000/api/users/profile
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZDVlOTcwNjI5YWJjMTM3OGY4NDAwZCIsImlhdCI6MTYyNDYzMTk0MiwiZXhwIjoxNjI0NjM1NTQyfQ.QAnKR25JLY-za5FhgIgKB8G7vCeYAGfIyAX2BHiPmog
+
+
+
+#######################  USER standpoint perferences   ######################
+# POST http://localhost:5000/api/users/preferences
+# Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZDVlOTcwNjI5YWJjMTM3OGY4NDAwZCIsImlhdCI6MTYyNDY0NTc3NywiZXhwIjoxNjI0NjQ5Mzc3fQ.tLZXOvu20UQmjc1mJ2S1tSBYAuiO5zMv5UhU31HOU24
+
+# {
+#     "preferences": [
+#         {
+#             "order": 1,
+#             "standPointId": "60d604e27fbb7f13a892c3b4"
+#         },
+#         {
+#             "order": 2,
+#             "standPointId": "60d604e27fbb7f13a892c3b6"
+#         },
+#         {
+#             "order": 3,
+#             "standPointId": "60d604e27fbb7f13a892c3b8"
+#         }
+#     ]
+# }
+
+
+#########################   AUTHORITY Create Drive   ######################
+POST http://localhost:5000/api/authorities/createDrive
+Content-Type: application/json
+
+{
+ "driveStandPoints" : [ 
+    {
+        "_id": "60d604e27fbb7f13a892c3b4",
+        "name": "Baisakhi elephant statue",
+        "location": "Baisakhi Abasan, Saltlake, Sector-II",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [88.41419219970702, 22.593092115430846]
+        },
+        "numberOfUser": 20
+    },
+    {
+        "_id": "60d604e27fbb7f13a892c3b6",
+        "name": "Baisakhi AMP Mall",
+        "location": "Baisakhi Abasan, Saltlake, Sector-II, Block-AG",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [87.41419219970702, 20.593092115430846]
+        },
+        "numberOfUser": 2
+    },
+    {
+
+        "name": "Baisakhi Park",
+        "location": "Baisakhi Abasan, Saltlake, Sector-II, Kolkata-091",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [89.41419219970702, 23.593092115430846]
+        },
+        "numberOfUser": 60
+    },
+    {
+        "name": "FD Stand",
+        "location": "1st A Cross road, Saltlake, Sector-II, Kolkata-092",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [88.41389179229736, 22.579937025537767]
+        },
+        "numberOfUser": 6
+    }
+  ]
+}

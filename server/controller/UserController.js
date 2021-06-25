@@ -1,6 +1,6 @@
-import mongoose from "mongoose";
 import generateToken from "../utils/generateJwt.js";
 import User from "../models/userModel.js";
+import standPoint from "../models/standPoint.js";
 
 /**
  * @description authenticate existing users and get auth token
@@ -89,6 +89,44 @@ export const getUserProfile = async (req, res, next) => {
       geometry: user.geometry,
       vaccine: user.vaccine,
     });
+  } catch (error) {
+    res.status(404);
+    next(error);
+  }
+};
+
+// @purpose:   POST preference of Stand point by User
+// @route:  GET /preferences
+// @access  Private
+/* 
+      preferences: {
+        order: Number,
+        standPointId: id,
+      }
+*/
+
+export const choosePreference = async (req, res, next) => {
+  try {
+    const userId = req.user._id;
+    const { preferences } = req.body;
+
+    // Check the user by userId
+    const user = await User.findById(userId).populate("preferences");
+
+    if (user) {
+      preferences.forEach((preference) => {
+        // Add standPointId and order to preferences array
+        user.preferences.push({
+          order: preference.order,
+          point: preference.standPointId,
+        });
+        user.save();
+      });
+      res.status(200).json(user);
+    } else {
+      res.status(403);
+      throw new Error("User not matched");
+    }
   } catch (error) {
     res.status(404);
     next(error);

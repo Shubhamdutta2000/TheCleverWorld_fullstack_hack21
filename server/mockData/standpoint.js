@@ -26,4 +26,40 @@ export const mockStandPoints = [
     },
     numberOfUser: 60,
   },
+  {
+    name: "FD Stand",
+    location: "1st A Cross road, Saltlake, Sector-II, Kolkata-092",
+    geometry: {
+      type: "Point",
+      coordinates: [88.41389179229736, 22.579937025537767],
+    },
+    numberOfUser: 6,
+  },
+  {
+    name: "DL Block Stand",
+    location: "Dl block statue, Saltlake, Sector-III, Kolkata-091",
+    geometry: {
+      type: "Point",
+      coordinates: [88.42487812042236, 22.58227491945433],
+    },
+    numberOfUser: 45,
+  },
+  {
+    name: "BJ Block area",
+    location: "DJ block area, Saltlake, Sector-IV, Kolkata-095",
+    geometry: {
+      type: "Point",
+      coordinates: [88.42766761779784, 22.590397801750292],
+    },
+    numberOfUser: 5,
+  },
+  {
+    name: "Block bridge",
+    location: "AF Block, Sector-IV, Kolkata-095",
+    geometry: {
+      type: "Point",
+      coordinates: [88.42165946960449, 22.599629569155976],
+    },
+    numberOfUser: 55,
+  },
 ];

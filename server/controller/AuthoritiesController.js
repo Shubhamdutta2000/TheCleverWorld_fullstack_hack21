@@ -60,7 +60,7 @@ export const createStandPoint = asyncHandler(async (req, res) => {
  */
 
 export const createDrive = asyncHandler(async (req, res) => {
-  const driveStandPoints = req.body;
+  const { driveStandPoints } = req.body;
 
   const coordArray = [];
   const foundUsers = [];
@@ -74,32 +74,35 @@ export const createDrive = asyncHandler(async (req, res) => {
     res.status(404);
     throw new Error("No drive points found ");
   }
+  console.log(driveStandPoints);
 
   // loop through each data point and query for user
-  coordArray.forEach((coordinate) => {
-    const usersWithinRange = await User.aggregate([
-      {
-        $geoNear: {
-          near: {
-            type: "Point",
-            coordinates: coordinate,
-          },
-          distanceField: "dist.calculated",
-          maxDistance: 4000,
-          spherical: true,
+  console.log(driveStandPoints[0]);
+  const usersWithinRange = await User.aggregate([
+    {
+      $geoNear: {
+        near: {
+          type: "Point",
+          coordinates: coordArray[0],
         },
+        distanceField: "dist.calculated",
+        maxDistance: 4000,
+        spherical: true,
       },
-    ]);
-
-    foundUsers.push(...usersWithinRange.email);
-  });
+    },
+  ]);
+  foundUsers.push(...usersWithinRange);
 
   if (foundUsers.length === 0) {
     res.status(404);
     throw new Error("No users within range of drive points found");
   }
 
-  // do other stuff before sending the res
+  // add stand points to the User model
+  foundUsers.forEach((user) => {
+    user.mapViewStandPoints.push(driveStandPoints[0]._id);
+  });
 
+  // do other stuff before sending the res
   res.status(200).send(foundUsers);
 });

@@ -6,7 +6,7 @@ const theme = createMuiTheme({
       main: "#8ec29b",
     },
     secondary: {
-      main: "#6c36ff",
+      main: "#f0f0f0",
     },
   },
   typography: {

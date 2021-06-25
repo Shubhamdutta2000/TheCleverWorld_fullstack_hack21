@@ -23,8 +23,8 @@ const importData = async () => {
     await User.deleteMany();
 
     // insert new stuff
-    const createdStandPoints = await StandPoint.insertMany(mockStandPoints);
-    const createdUsers = await StandPoint.insertMany(mockUsers);
+    await StandPoint.insertMany(mockStandPoints);
+    await User.insertMany(mockUsers);
 
     // extract admin user from DB (first in the array). get it into our mock foodreq array.
     // const volunteerUsers = createdUsers[0]._id;
@@ -42,6 +42,7 @@ const destroyData = async () => {
   try {
     // delete stuff
     await StandPoint.deleteMany();
+    await User.deleteMany();
 
     console.info("data destroyed");
     process.exit(0);
