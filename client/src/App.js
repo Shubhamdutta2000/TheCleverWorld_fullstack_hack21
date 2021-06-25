@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import Home from "./components/Home";
 import SignIn from "./components/Auth/SignIn";
 import Registration from "./components/Auth/Register";
+import userDashboard from "./components/userDashboard";
 function App() {
   return (
     <div>
@@ -20,6 +21,7 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route path="/login" component={SignIn} />
             <Route path="/register" component={Registration} />
+            <Route path="/dashboard" component={userDashboard} />
           </Switch>
           <Footer />
         </BrowserRouter>
