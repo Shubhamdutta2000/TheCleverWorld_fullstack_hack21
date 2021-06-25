@@ -3,8 +3,10 @@ import { connectDB } from "./config/db.js";
 
 import dotenv from "dotenv";
 import StandPoint from "./models/standPoint.js";
+import UserModel from "./models/userModel.js";
 
 import { mockStandPoints } from "./mockData/standpoint.js";
+import { mockUsers } from "./mockData/user.js";
 
 dotenv.config();
 
@@ -19,7 +21,8 @@ const importData = async () => {
     await StandPoint.deleteMany();
 
     // insert new stuff
-    const createdStandPoints = await StandPoint.insertMany(mockStandPoints);
+    await StandPoint.insertMany(mockStandPoints);
+    await UserModel.insertMany(mockUsers);
 
     // extract admin user from DB (first in the array). get it into our mock foodreq array.
     // const volunteerUsers = createdUsers[0]._id;
