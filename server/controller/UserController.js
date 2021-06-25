@@ -1,6 +1,7 @@
 import generateToken from "../utils/generateJwt.js";
 import User from "../models/userModel.js";
-import standPoint from "../models/standPoint.js";
+import asyncHandler from "express-async-handler";
+import StandPoint from "../models/standPoint.js";
 
 /**
  * @description authenticate existing users and get auth token
@@ -96,32 +97,56 @@ export const getUserProfile = async (req, res, next) => {
 };
 
 // @purpose:   POST preference of Stand point by User
-// @route:  GET /preferences
+// @route:  GET /register
 // @access  Private
 /* 
-      preferences: {
+      preferences: [{
         order: Number,
         standPointId: id,
-      }
+      }]
 */
 
-export const choosePreference = async (req, res, next) => {
+export const registerForVaccine = asyncHandler(async (req, res, next) => {
   try {
     const userId = req.user._id;
-    const { preferences } = req.body;
+    const { preferenceId } = req.body;
 
     // Check the user by userId
     const user = await User.findById(userId).populate("preferences");
 
     if (user) {
-      preferences.forEach((preference) => {
-        // Add standPointId and order to preferences array
-        user.preferences.push({
-          order: preference.order,
-          point: preference.standPointId,
-        });
-        user.save();
-      });
+      user.preferences = preferenceId;
+
+      // Check if seat is full
+      if (user.preferences?.numberOfUser === 0) {
+        res.status(404);
+        throw new Error("Drive is full!!");
+      }
+
+      // Assign stand Point
+      user.standPointAssigned = preferenceId;
+      await user.save();
+
+      console.log("USER", user);
+
+      const standPoint = await StandPoint.findById(user.standPointAssigned);
+      console.log(standPoint);
+
+      if (standPoint.numberOfUser !== 0) {
+        // Reduce NuumberOfUser left in StandPoint
+        standPoint.numberOfUser -= 1;
+        await standPoint.save();
+
+        // Assign Serial Number
+        user.serialNumber = 30 - standPoint.numberOfUser;
+        user.isRegistered = true;
+      } else {
+        res.status(404);
+        throw new Error("Drive is Full");
+      }
+      // save user
+      await user.save();
+
       res.status(200).json(user);
     } else {
       res.status(403);
@@ -131,4 +156,4 @@ export const choosePreference = async (req, res, next) => {
     res.status(404);
     next(error);
   }
-};
+});

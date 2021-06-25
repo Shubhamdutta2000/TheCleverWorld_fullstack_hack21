@@ -31,12 +31,10 @@ const UserSchema = new mongoose.Schema(
       unique: true,
       maxLength: 10,
     },
-    preferences: [
-      {
-        order: { type: Number, default: 1 },
-        point: { type: mongoose.Schema.Types.ObjectId, ref: "StandPoint" },
-      },
-    ],
+    preferences: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "StandPoint",
+    },
     standPointAssigned: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "StandPoint",

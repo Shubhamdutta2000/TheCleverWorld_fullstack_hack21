@@ -25,6 +25,9 @@ const StandPointSchema = new mongoose.Schema(
       type: Number,
       default: 30,
     },
+    leftUsers: {
+      type: Number,
+    },
   },
   { timestamps: true }
 );

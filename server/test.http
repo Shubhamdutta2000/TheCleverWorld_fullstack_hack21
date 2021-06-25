@@ -3,9 +3,9 @@
 # Content-Type: application/json
 
 # {
-#     "name": "Test2",
-#     "email": "sd@gmail.com",
-#     "phoneNumber": 9330705811,
+#     "name": "Final Test",
+#     "email": "sdsm@gmail.com",
+#     "phoneNumber": 9330705801,
 #     "adhaarNumber": 1234567890,
 #     "password": "test12",
 #     "geometry": {
@@ -32,30 +32,17 @@
 
 
 
-#######################  USER standpoint perferences   ######################
-# POST http://localhost:5000/api/users/preferences
+# #######################  USER standpoint perferences   ######################
+# POST http://localhost:5000/api/users/register
 # Content-Type: application/json
-# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZDVlOTcwNjI5YWJjMTM3OGY4NDAwZCIsImlhdCI6MTYyNDY0NTc3NywiZXhwIjoxNjI0NjQ5Mzc3fQ.tLZXOvu20UQmjc1mJ2S1tSBYAuiO5zMv5UhU31HOU24
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZDY0NGQ2ZTI1ZmNkMTk3ODk4Y2E3ZSIsImlhdCI6MTYyNDY1NTA2MiwiZXhwIjoxNjI0NjU4NjYyfQ.aWTNFMakwiG20DcqY-EwQsJ9sIlE4KJ6waVLuygtHno
 
 # {
-#     "preferences": [
-#         {
-#             "order": 1,
-#             "standPointId": "60d604e27fbb7f13a892c3b4"
-#         },
-#         {
-#             "order": 2,
-#             "standPointId": "60d604e27fbb7f13a892c3b6"
-#         },
-#         {
-#             "order": 3,
-#             "standPointId": "60d604e27fbb7f13a892c3b8"
-#         }
-#     ]
+#     "preferenceId": "60d604e27fbb7f13a892c3b4"
 # }
 
 
-#########################   AUTHORITY Create Drive   ######################
+########################   AUTHORITY Create Drive   ######################
 POST http://localhost:5000/api/authorities/createDrive
 Content-Type: application/json
 
