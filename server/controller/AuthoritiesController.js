@@ -24,7 +24,7 @@ export const createStandPoint = asyncHandler(async (req, res) => {
   const { selectedPoints } = req.body;
 
   // insert 4 stand points
-  const createdStandPoints = StandPoint.insertMany(selectedPoints);
+  const createdStandPoints = await StandPoint.insertMany(selectedPoints);
   if (!createdStandPoints) {
     res.status(500);
     throw new Error("Unable to create standpoints");
