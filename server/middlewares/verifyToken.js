@@ -36,4 +36,14 @@ const authProtect = async (req, res, next) => {
   }
 };
 
-export { authProtect };
+const authorityCheck = (req, res, next) => {
+  if (req.user && req.user.isAuthority) {
+    next();
+  } else {
+    res.status(401);
+    const err = new Error("Not authorised as authority");
+    next(err);
+  }
+};
+
+export { authProtect, authorityCheck };
