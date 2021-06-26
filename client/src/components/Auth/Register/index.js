@@ -38,7 +38,8 @@ const Registration = ({ location }) => {
   const validationSchema = yup.object({
     name: yup.string().required(),
     email: yup.string().email().required(),
-    userLocation: yup.string().required(),
+    phoneNumber: yup.string().length(10).required(),
+    adhaarNumber: yup.string().required(),
     geometry: yup.object().required(),
     password: yup
       .string()
@@ -55,7 +56,8 @@ const Registration = ({ location }) => {
     initialValues: {
       name: '',
       email: '',
-      userLocation: '',
+      phoneNumber: '',
+      adhaarNumber: '',
       geometry: {},
       password: '',
       confirmPassword: '',
@@ -68,7 +70,8 @@ const Registration = ({ location }) => {
           values.email,
           values.password,
           values.geometry,
-          values.userLocation
+          values.phoneNumber,
+          values.adhaarNumber
         )
       );
       console.log(values);
@@ -107,214 +110,238 @@ const Registration = ({ location }) => {
 
   return (
     <>
-    <Container >
-      {loading && (
-        <LinearProgress
-          style={{ marginTop: '4px', marginBottom: '4px' }}
-          color="primary"
-        />
-      )}
-      <FormContainer image={registerSvg}>
-        <div className={classes.paper}>
-          <Avatar className={classes.avatar}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Register
-          </Typography>
-          {error && (
-            <Alert
-              style={{ marginTop: '8px', width: '100%' }}
-              variant="outlined"
-              severity="error"
-            >
-              {error}
-            </Alert>
-          )}
-
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              formik.handleSubmit();
-            }}
-            className={classes.form}
-            noValidate
-            autoComplete="off"
-          >
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="name"
-              label="Name"
-              name="name"
-              autoFocus
-              value={formik.values.name}
-              onChange={formik.handleChange}
-              error={formik.touched.name && Boolean(formik.errors.name)}
-              helperText={formik.touched.name && formik.errors.name}
-            />
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Email"
-              name="email"
-              value={formik.values.email}
-              onChange={formik.handleChange}
-              error={formik.touched.email && Boolean(formik.errors.email)}
-              helperText={formik.touched.email && formik.errors.email}
-            />
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              value={formik.values.password}
-              onChange={formik.handleChange}
-              error={formik.touched.password && Boolean(formik.errors.password)}
-              helperText={formik.touched.password && formik.errors.password}
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-            />
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              name="confirmPassword"
-              value={formik.values.confirmPassword}
-              onChange={formik.handleChange}
-              error={
-                formik.touched.confirmPassword &&
-                Boolean(formik.errors.confirmPassword)
-              }
-              helperText={
-                formik.touched.confirmPassword && formik.errors.confirmPassword
-              }
-              label="ConfirmPassword"
-              type="password"
-              id="confirm password"
-            />
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              name="userLocation"
-              value={formik.values.userLocation}
-              onChange={formik.handleChange}
-              error={
-                formik.touched.userLocation &&
-                Boolean(formik.errors.userLocation)
-              }
-              helperText={
-                formik.touched.userLocation && formik.errors.userLocation
-              }
-              label="Address"
-              type="text"
-              id="userLocation"
-            />
-
-            <TextField
-              variant="outlined"
-              style={{ display: 'none' }}
-              margin="normal"
-              required
-              fullWidth
-              name="geometry"
-              value={formik.values.geometry}
-              onChange={formik.handleChange}
-              error={formik.touched.geometry && Boolean(formik.errors.geometry)}
-              helperText={formik.touched.geometry && formik.errors.geometry}
-              label="geometry"
-              type="text"
-              id="geometry"
-            />
-
-            <Button
-              fullWidth
-              variant="contained"
-              color="primary"
-              style={{ width: '25%' }}
-              className={classes.submit}
-              onClick={getLocation}
-            >
-              Provide your location
-            </Button>
-            <Grid container></Grid>
-
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-            >
+      <Container>
+        {loading && (
+          <LinearProgress
+            style={{ marginTop: '4px', marginBottom: '4px' }}
+            color="primary"
+          />
+        )}
+        <FormContainer image={registerSvg}>
+          <div className={classes.paper}>
+            <Avatar className={classes.avatar}>
+              <LockOutlinedIcon />
+            </Avatar>
+            <Typography component="h1" variant="h5">
               Register
-            </Button>
-            <Grid container>
-              <Grid item>
-                <Link
-                  to={redirect ? `/login?redirect=${redirect}` : `/login`}
-                  style={{
-                    textDecoration: 'none',
-                    color: '#fff',
-                  }}
-                >
-                  <Typography variant="body2" component="p">
-                    Already have an account?{' '}
-                    <span
-                      style={{
-                        textDecoration: 'underline',
-                      }}
-                    >
-                      Sign In
-                    </span>
-                  </Typography>
-                  <div>
-                    <Dialog
-                      open={open}
-                      onClose={() => {
-                        setOpen(false);
-                      }}
-                      aria-labelledby="alert-dialog-title"
-                      aria-describedby="alert-dialog-description"
-                    >
-                      <DialogTitle id="alert-dialog-title">
-                        {'We need your location for us to help you'}
-                      </DialogTitle>
-                      <DialogContent>
-                        <DialogContentText id="alert-dialog-description">
-                          Let our application determine location. Your privacy
-                          is our top concern. It will not be shared to external
-                          services in any way.
-                        </DialogContentText>
-                      </DialogContent>
-                      <DialogActions>
-                        <Button
-                          onClick={() => {
-                            setOpen(false);
-                          }}
-                          color="#fff"
-                        >
-                          I understand
-                        </Button>
-                      </DialogActions>
-                    </Dialog>
-                  </div>
-                </Link>
+            </Typography>
+            {error && (
+              <Alert
+                style={{ marginTop: '8px', width: '100%' }}
+                variant="outlined"
+                severity="error"
+              >
+                {error}
+              </Alert>
+            )}
+
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                formik.handleSubmit();
+              }}
+              className={classes.form}
+              noValidate
+              autoComplete="off"
+            >
+              <TextField
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                id="name"
+                label="Name"
+                name="name"
+                autoFocus
+                value={formik.values.name}
+                onChange={formik.handleChange}
+                error={formik.touched.name && Boolean(formik.errors.name)}
+                helperText={formik.touched.name && formik.errors.name}
+              />
+              <TextField
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                id="email"
+                label="Email"
+                name="email"
+                value={formik.values.email}
+                onChange={formik.handleChange}
+                error={formik.touched.email && Boolean(formik.errors.email)}
+                helperText={formik.touched.email && formik.errors.email}
+              />
+              <TextField
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                name="password"
+                value={formik.values.password}
+                onChange={formik.handleChange}
+                error={
+                  formik.touched.password && Boolean(formik.errors.password)
+                }
+                helperText={formik.touched.password && formik.errors.password}
+                label="Password"
+                type="password"
+                id="password"
+                autoComplete="current-password"
+              />
+              <TextField
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                name="confirmPassword"
+                value={formik.values.confirmPassword}
+                onChange={formik.handleChange}
+                error={
+                  formik.touched.confirmPassword &&
+                  Boolean(formik.errors.confirmPassword)
+                }
+                helperText={
+                  formik.touched.confirmPassword &&
+                  formik.errors.confirmPassword
+                }
+                label="ConfirmPassword"
+                type="password"
+                id="confirm password"
+              />
+              <TextField
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                name="phoneNumber"
+                value={formik.values.phoneNumber}
+                onChange={formik.handleChange}
+                error={
+                  formik.touched.phoneNumber &&
+                  Boolean(formik.errors.phoneNumber)
+                }
+                helperText={
+                  formik.touched.phoneNumber && formik.errors.phoneNumber
+                }
+                label="Phone Number"
+                type="text"
+                id="phoneNumber"
+              />
+              <TextField
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                name="adhaarNumber"
+                value={formik.values.adhaarNumber}
+                onChange={formik.handleChange}
+                error={
+                  formik.touched.adhaarNumber &&
+                  Boolean(formik.errors.adhaarNumber)
+                }
+                helperText={
+                  formik.touched.adhaarNumber && formik.errors.adhaarNumber
+                }
+                label="adhaar Number"
+                type="text"
+                id="adhaarNumber"
+              />
+
+              <TextField
+                variant="outlined"
+                style={{ display: 'none' }}
+                margin="normal"
+                required
+                fullWidth
+                name="geometry"
+                value={formik.values.geometry}
+                onChange={formik.handleChange}
+                error={
+                  formik.touched.geometry && Boolean(formik.errors.geometry)
+                }
+                helperText={formik.touched.geometry && formik.errors.geometry}
+                label="geometry"
+                type="text"
+                id="geometry"
+              />
+
+              <Button
+                fullWidth
+                variant="contained"
+                color="primary"
+                style={{ width: '25%' }}
+                className={classes.submit}
+                onClick={getLocation}
+              >
+                Provide your location
+              </Button>
+              <Grid container></Grid>
+
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                color="primary"
+                className={classes.submit}
+              >
+                Register
+              </Button>
+              <Grid container>
+                <Grid item>
+                  <Link
+                    to={redirect ? `/login?redirect=${redirect}` : `/login`}
+                    style={{
+                      textDecoration: 'none',
+                      color: '#fff',
+                    }}
+                  >
+                    <Typography variant="body2" component="p">
+                      Already have an account?{' '}
+                      <span
+                        style={{
+                          textDecoration: 'underline',
+                        }}
+                      >
+                        Sign In
+                      </span>
+                    </Typography>
+                  </Link>
+                </Grid>
+                <div>
+                  <Dialog
+                    open={open}
+                    onClose={() => {
+                      setOpen(false);
+                    }}
+                    aria-labelledby="alert-dialog-title"
+                    aria-describedby="alert-dialog-description"
+                  >
+                    <DialogTitle id="alert-dialog-title">
+                      {'We need your location for us to help you'}
+                    </DialogTitle>
+                    <DialogContent>
+                      <DialogContentText id="alert-dialog-description">
+                        Let our application determine location. Your privacy is
+                        our top concern. It will not be shared to external
+                        services in any way.
+                      </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                      <Button
+                        onClick={() => {
+                          setOpen(false);
+                        }}
+                        color="#fff"
+                      >
+                        I understand
+                      </Button>
+                    </DialogActions>
+                  </Dialog>
+                </div>
               </Grid>
-            </Grid>
-          </form>
-        </div>
-      </FormContainer>
+            </form>
+          </div>
+        </FormContainer>
       </Container>
     </>
   );
