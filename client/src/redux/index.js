@@ -9,9 +9,14 @@ const localLoginData = localStorage.getItem('userData')
   ? JSON.parse(localStorage.getItem('userData'))
   : null;
 
-//GET user info from localstorage
+//GET Stand Point For User from localstorage
 const localStandPointUser = localStorage.getItem('stand-point-user')
   ? JSON.parse(localStorage.getItem('stand-point-user'))
+  : null;
+
+//GET Users under Drive for Authority from localstorage
+const localUsersUnderDriveAuthority = localStorage.getItem('userUnderDrive')
+  ? JSON.parse(localStorage.getItem('userUnderDrive'))
   : null;
 
 const initialState = {
@@ -24,6 +29,11 @@ const initialState = {
     loading: false,
     error: null,
     data: localStandPointUser,
+  },
+  driveVaccine: {
+    loading: false,
+    error: null,
+    data: localUsersUnderDriveAuthority,
   },
 };
 
