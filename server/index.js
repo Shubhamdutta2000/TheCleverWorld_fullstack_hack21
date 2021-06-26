@@ -4,7 +4,12 @@ import morgan from "morgan";
 import * as dotenv from "dotenv";
 
 import { connectDB } from "./config/db.js";
-import { homeRouter, userRouter, authoritiesRouter } from "./routes/index.js";
+import {
+  homeRouter,
+  userRouter,
+  authoritiesRouter,
+  dataPointRouter,
+} from "./routes/index.js";
 import { NotFound, errorhandler } from "./middlewares/";
 dotenv.config();
 
@@ -23,6 +28,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(homeRouter);
 app.use("/api/users", userRouter);
 app.use("/api/authorities", authoritiesRouter);
+app.use("/api/datapoints", dataPointRouter);
 
 // error handling middlewares
 app.use(errorhandler);
