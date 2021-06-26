@@ -1,0 +1,73 @@
+#######################  AUTHORITY stand_point create   ####################
+# POST http://localhost:5000/api/authorities/create-stand-point
+# Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZDZhNTliZWIzZDllMjVhMDIyNTQ4ZSIsImlhdCI6MTYyNDY3OTg5OCwiZXhwIjoxNjI0NjgzNDk4fQ.b0BUEmRXdp7bHqe-_yFivhxYX7kfOsvXWCMo2Qt9Jog
+
+# {
+#     "selectedPoints": [
+#          {
+#               "name": "xyz",
+#               "location": "abc",
+#               "geometry": {
+#                   "coordinates": [80.7397, 22.383]
+#                   }
+#          },
+#         {
+#             "name": "cde",
+#             "location": "stu",
+#             "geometry": {
+#                 "coordinates": [81.1397, 23.683]
+#                 }
+#         },
+#         {
+#             "name": "mnl",
+#             "location": "pqr",
+#             "geometry": {
+#                 "coordinates": [80.5397, 24.383]
+#                 }
+#         }
+#     ]
+# }
+
+
+
+
+# ########################   AUTHORITY Create Drive   ######################
+POST http://localhost:5000/api/authorities/createDrive
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZDZjYzdjOTVjYTRlMThiYzFhMzA2YiIsImlhdCI6MTYyNDY4OTgxNywiZXhwIjoxNjI0NjkzNDE3fQ.Q5ojkciXluz6oeA8uHb2kHu-nCrT6VPvteeQkpuFFNo
+
+{
+ "driveStandPoints" : [ 
+    {
+        "_id": "60d6cc7c95ca4e18bc1a3059",
+        "name": "Baisakhi elephant statue",
+        "location": "Baisakhi Abasan, Saltlake, Sector-II",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [88.41419219970702, 22.593092115430846]
+        },
+        "numberOfUser": 30
+    },
+    {
+        "_id": "60d6bd69c6d88f39c8419822",
+        "name": "Baisakhi AMP Mall",
+        "location": "Baisakhi Abasan, Saltlake, Sector-II, Block-AG",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [87.41419219970702, 20.593092115430846]
+        },
+        "numberOfUser": 30
+    },
+    {
+        "_id": "60d6bd69c6d88f39c8419824",
+        "name": "Baisakhi Park",
+        "location": "Baisakhi Abasan, Saltlake, Sector-II, Kolkata-091",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [89.41419219970702, 23.593092115430846]
+        },
+        "numberOfUser": 30
+    }
+  ]
+}

@@ -2,6 +2,7 @@ import express from "express";
 import {
   authUser,
   createUser,
+  getStandPoint,
   getUserProfile,
   registerForVaccine,
 } from "../controller/UserController.js";
@@ -12,6 +13,7 @@ const router = express.Router();
 router.post("/login", authUser);
 router.post("/signup", createUser);
 router.get("/profile", authProtect, getUserProfile);
-router.post("/register", authProtect, registerForVaccine);
+router.get("/get-stand-points", authProtect, getStandPoint);
+router.post("/register-for-vaccine", authProtect, registerForVaccine);
 
 export { router as userRouter };
