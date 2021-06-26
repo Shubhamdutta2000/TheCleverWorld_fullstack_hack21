@@ -1,6 +1,7 @@
 import User from "../models/userModel.js";
 import StandPoint from "../models/standPoint.js";
 import asyncHandler from "express-async-handler";
+import registerRequest from "../mailer/registerRequestMail.js";
 
 /**
  *
@@ -104,6 +105,9 @@ export const createDrive = asyncHandler(async (req, res) => {
     const foundedUser = await User.findOne(user._id);
     foundedUser.mapViewStandPoints.push(driveStandPoints[0]._id);
     await foundedUser.save();
+
+    // Send mail For registeration
+    registerRequest(foundedUser);
   });
 
   // do other stuff before sending the res
