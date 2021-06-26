@@ -23,7 +23,10 @@ const StandPointSchema = new mongoose.Schema(
     geometry: GeoSchema,
     numberOfUser: {
       type: Number,
-      default: 0,
+      default: 30,
+    },
+    leftUsers: {
+      type: Number,
     },
   },
   { timestamps: true }

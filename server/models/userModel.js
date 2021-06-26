@@ -31,12 +31,10 @@ const UserSchema = new mongoose.Schema(
       unique: true,
       maxLength: 10,
     },
-    preferences: [
-      {
-        order: { type: Number, default: 1 },
-        point: { type: mongoose.Schema.Types.ObjectId, ref: "StandPoint" },
-      },
-    ],
+    preferences: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "StandPoint",
+    },
     standPointAssigned: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "StandPoint",
@@ -46,6 +44,10 @@ const UserSchema = new mongoose.Schema(
       default: false,
     },
     isAuthority: {
+      type: Boolean,
+      default: false,
+    },
+    isRegistered: {
       type: Boolean,
       default: false,
     },
@@ -65,12 +67,10 @@ const UserSchema = new mongoose.Schema(
     },
     geometry: GeoSchema,
     // for easy viewing in the front end
-    mapViewStandPoints: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "StandPoint",
-      },
-    ],
+    mapViewStandPoints: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "StandPoint",
+    }],
   },
   { timestamps: true }
 );

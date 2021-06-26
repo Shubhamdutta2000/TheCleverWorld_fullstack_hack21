@@ -1,0 +1,46 @@
+#########################  user Signup   ####################
+# POST http://localhost:5000/api/users/signup
+# Content-Type: application/json
+
+# {
+#     "name": "Authority",
+#     "email": "shubham@gmail.com",
+#     "phoneNumber": 9123456780,
+#     "adhaarNumber": 1234567990,
+#     "password": "test12",
+#     "geometry": {
+#       "type": "Point",
+#       "coordinates": [87.40673828125, 29.828725387681168]
+#     }
+# }
+
+
+# # #########################  USER login   ###############################
+# POST http://localhost:5000/api/users/login
+# Content-Type: application/json
+
+# {
+#     "email": "shubhamduttanovember@gmail.com",
+#     "password": "frost1234"
+# }
+
+
+
+########################  USER profile  ###############################
+# GET http://localhost:5000/api/users/profile
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZDVlOTcwNjI5YWJjMTM3OGY4NDAwZCIsImlhdCI6MTYyNDYzMTk0MiwiZXhwIjoxNjI0NjM1NTQyfQ.QAnKR25JLY-za5FhgIgKB8G7vCeYAGfIyAX2BHiPmog
+
+
+# ########################  GET Stand Point of User assigned By Authority)  ##################
+# GET http://localhost:5000/api/users/get-stand-points/
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZDZjYzdjOTVjYTRlMThiYzFhMzA3MyIsImlhdCI6MTYyNDY4OTg5NSwiZXhwIjoxNjI0NjkzNDk1fQ.MRI-s7g9wJ3PXR_gG6VVNsni1z1TbpE98016sT1S-Ds
+
+
+# #######################  USER standpoint perferences   ######################
+POST http://localhost:5000/api/users/register-for-vaccine
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZDZjYzdjOTVjYTRlMThiYzFhMzA2YiIsImlhdCI6MTYyNDY5Mjg5OCwiZXhwIjoxNjI0Njk2NDk4fQ.ZOejaJzPlLdnMnDh9wJyD_bCuC40ZPMAE76XXqbrzPM
+
+{
+    "preferenceId": "60d6cc7c95ca4e18bc1a3059"
+}

@@ -1,0 +1,248 @@
+import bcrypt from "bcrypt";
+
+export const mockUsers = [
+  {
+    name: "Soumava Banerjee",
+    email: "soumava.rivu@gmail.com",
+    password: bcrypt.hashSync("frost1234", 10),
+    adhaarNumber: 1234567890,
+    phoneNumber: 8777724254,
+    isAuthority: true,
+    geometry: {
+      type: "Point",
+      coordinates: [88.1378173828125, 22.67738161936916],
+    },
+  },
+  {
+    name: "Shubham Dutta",
+    email: "shubhamduttanovember@gmail.com",
+    password: bcrypt.hashSync("frost1234", 10),
+    adhaarNumber: 1234567890,
+    phoneNumber: 9330715911,
+    isAuthority: true,
+    geometry: {
+      type: "Point",
+      coordinates: [88.1378173828129, 22.6773816193691],
+    },
+  },
+  {
+    name: "Frost Byte",
+    email: "frost.byte@gmail.com",
+    password: bcrypt.hashSync("frost1234", 10),
+    adhaarNumber: 1234567890,
+    phoneNumber: 8943125754,
+    geometry: {
+      type: "Point",
+      coordinates: [88.33969116210938, 22.54426932077957],
+    },
+  },
+  {
+    name: "Flame Bit",
+    email: "flame.bit@gmail.com",
+    password: bcrypt.hashSync("frost1234", 10),
+    adhaarNumber: 1234567890,
+    phoneNumber: 7342000268,
+    geometry: {
+      type: "Point",
+      coordinates: [88.39874267578124, 22.405950148725722],
+    },
+  },
+  {
+    name: "Flaming hearts",
+    email: "flaminghearts.bit@gmail.com",
+    password: bcrypt.hashSync("frost1234", 10),
+    adhaarNumber: 1234567890,
+    phoneNumber: 9830181429,
+    geometry: {
+      type: "Point",
+      coordinates: [88.41256141662596, 22.5809276633969],
+    },
+  },
+  {
+    name: "Love Bird",
+    email: "lovebird.bit@gmail.com",
+    password: bcrypt.hashSync("frost1234", 10),
+    adhaarNumber: 1234567890,
+    phoneNumber: 8250345696,
+    geometry: {
+      type: "Point",
+      coordinates: [88.41307640075684, 22.580571034588164],
+    },
+  },
+  {
+    name: "Orzo Orangotang",
+    email: "orzo.bit@gmail.com",
+    password: bcrypt.hashSync("frost1234", 10),
+    adhaarNumber: 1234567890,
+    phoneNumber: 9634596345,
+    geometry: {
+      type: "Point",
+      coordinates: [88.4113597869873, 22.58088803801929],
+    },
+  },
+  {
+    name: "Babyboo",
+    email: "babyboo.bit@gmail.com",
+    password: bcrypt.hashSync("frost1234", 10),
+    adhaarNumber: 1234567890,
+    phoneNumber: 9163984875,
+    geometry: {
+      type: "Point",
+      coordinates: [88.41329097747803, 22.581957919214346],
+    },
+  },
+  {
+    name: "Anushka Honuman",
+    email: "anushkahonu.bit@gmail.com",
+    password: bcrypt.hashSync("frost1234", 10),
+    adhaarNumber: 1234567890,
+    phoneNumber: 8425652649,
+    geometry: {
+      type: "Point",
+      coordinates: [88.41230392456055, 22.580333281536163],
+    },
+  },
+  {
+    name: "Honuman oshikha",
+    email: "honuoshikha.bit@gmail.com",
+    password: bcrypt.hashSync("frost1234", 10),
+    adhaarNumber: 1234567890,
+    phoneNumber: 9321654987,
+    geometry: {
+      type: "Point",
+      coordinates: [88.42638015747069, 22.581403167039216],
+    },
+  },
+  {
+    name: "Kaustav Banerjee",
+    email: "banerjeekau.bit@gmail.com",
+    password: bcrypt.hashSync("frost1234", 10),
+    adhaarNumber: 1234567890,
+    phoneNumber: 8617786321,
+    geometry: {
+      type: "Point",
+      coordinates: [88.4265947341919, 22.5809276633969],
+    },
+  },
+  {
+    name: "Johnty Ma",
+    email: "johntyma.bit@gmail.com",
+    password: bcrypt.hashSync("frost1234", 10),
+    adhaarNumber: 1234567890,
+    phoneNumber: 9432962714,
+    geometry: {
+      type: "Point",
+      coordinates: [88.4265947341919, 22.5809276633969],
+    },
+  },
+  {
+    name: "Adrija Ex",
+    email: "exadrija.bit@gmail.com",
+    password: bcrypt.hashSync("frost1234", 10),
+    adhaarNumber: 1234567890,
+    phoneNumber: 8420206067,
+    geometry: {
+      type: "Point",
+      coordinates: [88.42569351196288, 22.58061066005694],
+    },
+  },
+  {
+    name: "Ronojit bhul",
+    email: "bhulchele.bit@gmail.com",
+    password: bcrypt.hashSync("frost1234", 10),
+    adhaarNumber: 1234567890,
+    phoneNumber: 7044826294,
+    geometry: {
+      type: "Point",
+      coordinates: [88.42633724212646, 22.580650285514317],
+    },
+  },
+  {
+    name: "Honu hebrew",
+    email: "honuhebrew.bit@gmail.com",
+    password: bcrypt.hashSync("frost1234", 10),
+    adhaarNumber: 1234567890,
+    phoneNumber: 6250898671,
+    geometry: {
+      type: "Point",
+      coordinates: [88.42689514160156, 22.58881288672458],
+    },
+  },
+  {
+    name: "Rubi Chakraborty",
+    email: "chakrabortyrubi.bit@gmail.com",
+    password: bcrypt.hashSync("frost1234", 10),
+    adhaarNumber: 1234567890,
+    phoneNumber: 6290896232,
+    geometry: {
+      type: "Point",
+      coordinates: [88.42762470245361, 22.5890110021003],
+    },
+  },
+  {
+    name: "Euler Robert",
+    email: "eulerrobert.bit@gmail.com",
+    password: bcrypt.hashSync("frost1234", 10),
+    adhaarNumber: 1234567890,
+    phoneNumber: 8777785008,
+    geometry: {
+      type: "Point",
+      coordinates: [88.42638015747069, 22.5894468549237],
+    },
+  },
+  {
+    name: "Anirban baby",
+    email: "babyani.bit@gmail.com",
+    password: bcrypt.hashSync("frost1234", 10),
+    adhaarNumber: 1234567890,
+    phoneNumber: 9192939495,
+    geometry: {
+      type: "Point",
+      coordinates: [88.42002868652344, 22.600065388365888],
+    },
+  },
+  {
+    name: "Sohini JS",
+    email: "jssohini.bit@gmail.com",
+    password: bcrypt.hashSync("frost1234", 10),
+    adhaarNumber: 1234567890,
+    phoneNumber: 6234592345,
+    geometry: {
+      type: "Point",
+      coordinates: [88.4203290939331, 22.60014462807397],
+    },
+  },
+  {
+    name: "Sorudip Chele",
+    email: "sorudip.bit@gmail.com",
+    password: bcrypt.hashSync("frost1234", 10),
+    adhaarNumber: 1234567890,
+    phoneNumber: 9831542569,
+    geometry: {
+      type: "Point",
+      coordinates: [88.4208869934082, 22.600025768494735],
+    },
+  },
+  {
+    name: "Bhowmik Soumik",
+    email: "soumik.bit@gmail.com",
+    password: bcrypt.hashSync("frost1234", 10),
+    adhaarNumber: 1234567890,
+    phoneNumber: 7894561230,
+    geometry: {
+      type: "Point",
+      coordinates: [88.42050075531006, 22.599788049028323],
+    },
+  },
+  {
+    name: "Kundan Bro",
+    email: "kundan.bit@gmail.com",
+    password: bcrypt.hashSync("frost1234", 10),
+    adhaarNumber: 1234567890,
+    phoneNumber: 9860532015,
+    geometry: {
+      type: "Point",
+      coordinates: [88.4196424484253, 22.599906908812844],
+    },
+  },
+];
