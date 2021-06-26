@@ -13,7 +13,7 @@ import afterRegisterMail from "../mailer/afterRegisterMail";
 
 // Not working lol
 
-export const authUser = async (req, res) => {
+export const authUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
   const user = await User.findOne({ email: email });
   console.log(user);
@@ -24,14 +24,18 @@ export const authUser = async (req, res) => {
       email: user.email,
       phoneNumber: user.phoneNumber,
       adhaarNumber: user.adhaarNumber,
+      isVaccinated: user.isVaccinated,
+      isRegistered: user.isRegistered,
+      isAuthority: user.isAuthority,
       geometry: user.geometry,
+      serialNumber: user.serialNumber,
       token: generateToken(user._id),
     });
   } else {
     res.status(401);
     throw new Error("email or password is invalid");
   }
-};
+});
 
 /**
  * @description register a new user

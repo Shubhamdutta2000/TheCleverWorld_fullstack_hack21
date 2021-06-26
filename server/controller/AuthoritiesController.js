@@ -18,6 +18,7 @@ import registerRequest from "../mailer/registerRequestMail.js";
  *              numberOfUser: 30
  *          }, {}, {}]
  * }
+ *
  */
 
 export const createStandPoint = asyncHandler(async (req, res) => {

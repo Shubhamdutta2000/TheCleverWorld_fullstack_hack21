@@ -28,7 +28,7 @@ app.use("/api/authorities", authoritiesRouter);
 app.use(errorhandler);
 app.use(NotFound);
 
-app.listen(5000, () => {
+app.listen(PORT, () => {
   console.info(`app running on ${environment} mode at port ${PORT} `);
 });
 

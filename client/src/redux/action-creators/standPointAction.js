@@ -6,7 +6,7 @@ import {
 
 import { getStandPoint } from '../../api/standPoint';
 
-export const getStandPointUserAction = () => async (dispatch) => {
+export const getStandPointUserAction = () => async (dispatch, getState) => {
   dispatch({ type: GET_STAND_POINT_USER_REQUEST });
   try {
     const {
