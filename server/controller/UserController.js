@@ -15,7 +15,7 @@ import StandPoint from "../models/standPoint.js";
 export const authUser = async (req, res) => {
   const { email, password } = req.body;
   const user = await User.findOne({ email: email });
-
+  console.log(user);
   if (user && (await user.matchPassword(password))) {
     res.status(200).json({
       _id: user._id,
@@ -96,14 +96,26 @@ export const getUserProfile = async (req, res, next) => {
   }
 };
 
+// @purpose:   GET Stand point of User (assigned by authority)
+// @route:  POST /get-stand-points
+// @access  Private
+
+export const getStandPoint = asyncHandler(async (req, res, next) => {
+  try {
+    const userId = req.user._id;
+    const user = await User.findById(userId).populate("mapViewStandPoints");
+    res.json(user.mapViewStandPoints[0]);
+  } catch (error) {
+    res.status(404);
+    throw Error(error);
+  }
+});
+
 // @purpose:   POST preference of Stand point by User
-// @route:  GET /register
+// @route:  POST /register-for-vaccine
 // @access  Private
 /* 
-      preferences: [{
-        order: Number,
-        standPointId: id,
-      }]
+    preferenceId: id
 */
 
 export const registerForVaccine = asyncHandler(async (req, res, next) => {
@@ -112,7 +124,7 @@ export const registerForVaccine = asyncHandler(async (req, res, next) => {
     const { preferenceId } = req.body;
 
     // Check the user by userId
-    const user = await User.findById(userId).populate("preferences");
+    const user = await User.findById(userId);
 
     if (user) {
       user.preferences = preferenceId;

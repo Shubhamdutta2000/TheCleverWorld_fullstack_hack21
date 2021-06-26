@@ -67,12 +67,10 @@ const UserSchema = new mongoose.Schema(
     },
     geometry: GeoSchema,
     // for easy viewing in the front end
-    mapViewStandPoints: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "StandPoint",
-      },
-    ],
+    mapViewStandPoints: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "StandPoint",
+    }],
   },
   { timestamps: true }
 );

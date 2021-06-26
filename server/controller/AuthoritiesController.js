@@ -73,10 +73,8 @@ export const createDrive = asyncHandler(async (req, res) => {
     res.status(404);
     throw new Error("No drive points found ");
   }
-  console.log(driveStandPoints);
 
-  // loop through each data point and query for user
-  console.log(driveStandPoints[0]);
+  // query for user with only 1 data point
   const usersWithinRange = await User.aggregate([
     {
       $geoNear: {
@@ -85,7 +83,7 @@ export const createDrive = asyncHandler(async (req, res) => {
           coordinates: coordArray[0],
         },
         distanceField: "dist.calculated",
-        maxDistance: 4000,
+        maxDistance: 3000,
         spherical: true,
       },
     },
@@ -97,19 +95,26 @@ export const createDrive = asyncHandler(async (req, res) => {
     throw new Error("No users within range of drive points found");
   }
 
-  // add stand points to the User model
-  foundUsers.forEach((user) => {
+  // add stand points to the User model from each user in foundUsers array
+  foundUsers.forEach(async (user) => {
+    // update in foundUsers array
     user.mapViewStandPoints.push(driveStandPoints[0]._id);
+
+    // update stand_point in userModel
+    const foundedUser = await User.findOne(user._id);
+    foundedUser.mapViewStandPoints.push(driveStandPoints[0]._id);
+    await foundedUser.save();
   });
 
   // do other stuff before sending the res
   res.status(200).send(foundUsers);
 });
 
-
-
-// UserName, mobile number, stand point (id), Serial Number, isVaccinated
-
+/*
+ @desc: Get registered Users details and show them in table in frontend  Get UserName, mobile number, stand point (id), Serial Number, isVaccinated
+ @route:  GET /get-registered-users
+ @access  Private
+ */
 export const getDriveUserData = asyncHandler(async (req, res) => {
   const registeredUsers = await User.find({ isRegistered: true });
   res.status(200).send(registeredUsers);

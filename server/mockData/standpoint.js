@@ -5,8 +5,7 @@ export const mockStandPoints = [
     geometry: {
       type: "Point",
       coordinates: [88.41419219970702, 22.593092115430846],
-    },
-    numberOfUser: 20,
+    }
   },
   {
     name: "Baisakhi AMP Mall",
@@ -14,8 +13,7 @@ export const mockStandPoints = [
     geometry: {
       type: "Point",
       coordinates: [87.41419219970702, 20.593092115430846],
-    },
-    numberOfUser: 2,
+    }
   },
   {
     name: "Baisakhi Park",
@@ -23,8 +21,7 @@ export const mockStandPoints = [
     geometry: {
       type: "Point",
       coordinates: [89.41419219970702, 23.593092115430846],
-    },
-    numberOfUser: 60,
+    }
   },
   {
     name: "FD Stand",
@@ -32,8 +29,7 @@ export const mockStandPoints = [
     geometry: {
       type: "Point",
       coordinates: [88.41389179229736, 22.579937025537767],
-    },
-    numberOfUser: 6,
+    }
   },
   {
     name: "DL Block Stand",
@@ -41,8 +37,7 @@ export const mockStandPoints = [
     geometry: {
       type: "Point",
       coordinates: [88.42487812042236, 22.58227491945433],
-    },
-    numberOfUser: 45,
+    }
   },
   {
     name: "BJ Block area",
@@ -50,8 +45,7 @@ export const mockStandPoints = [
     geometry: {
       type: "Point",
       coordinates: [88.42766761779784, 22.590397801750292],
-    },
-    numberOfUser: 5,
+    }
   },
   {
     name: "Block bridge",
@@ -59,7 +53,6 @@ export const mockStandPoints = [
     geometry: {
       type: "Point",
       coordinates: [88.42165946960449, 22.599629569155976],
-    },
-    numberOfUser: 55,
+    }
   },
 ];

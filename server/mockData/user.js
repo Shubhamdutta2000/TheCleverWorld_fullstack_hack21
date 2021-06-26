@@ -14,6 +14,18 @@ export const mockUsers = [
     },
   },
   {
+    name: "Shubham Dutta",
+    email: "shubhamduttanovember@gmail.com",
+    password: bcrypt.hashSync("frost1234", 10),
+    adhaarNumber: 1234567890,
+    phoneNumber: 9330715911,
+    isAuthority: true,
+    geometry: {
+      type: "Point",
+      coordinates: [88.1378173828129, 22.6773816193691],
+    },
+  },
+  {
     name: "Frost Byte",
     email: "frost.byte@gmail.com",
     password: bcrypt.hashSync("frost1234", 10),
