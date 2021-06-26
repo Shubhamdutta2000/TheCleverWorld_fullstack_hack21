@@ -109,7 +109,7 @@ export const getStandPoint = asyncHandler(async (req, res, next) => {
   try {
     const userId = req.user._id;
     const user = await User.findById(userId).populate("mapViewStandPoints");
-    res.json(user.mapViewStandPoints[0]);
+    res.json(user.mapViewStandPoints);
   } catch (error) {
     res.status(404);
     throw Error(error);
@@ -120,7 +120,7 @@ export const getStandPoint = asyncHandler(async (req, res, next) => {
 // @route:  POST /register-for-vaccine
 // @access  Private
 /* 
-    preferenceId: id
+    preferences: [id]
 */
 
 export const registerForVaccine = asyncHandler(async (req, res, next) => {
