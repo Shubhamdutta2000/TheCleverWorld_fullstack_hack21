@@ -9,15 +9,20 @@ import { getStandPoint } from '../../api/standPoint';
 export const getStandPointUserAction = () => async (dispatch) => {
   dispatch({ type: GET_STAND_POINT_USER_REQUEST });
   try {
-    const { data } = await getStandPoint();
-    console.log(data);
+    const {
+      userLogin: { data },
+    } = getState();
+
+    const { data: standPointDetails } = await getStandPoint(data.token);
+    console.log(standPointDetails);
+
     dispatch({
       type: GET_STAND_POINT_USER_SUCCESS,
-      payload: data,
+      payload: standPointDetails,
     });
 
     //   set stand-point-user in localStorage
-    localStorage.setItem('stand-point-user', JSON.stringify(data));
+    localStorage.setItem('stand-point-user', JSON.stringify(standPointDetails));
   } catch (error) {
     dispatch({
       type: GET_STAND_POINT_USER_FAILURE,
