@@ -1,8 +1,17 @@
+import { useEffect } from 'react';
 import { Grid } from '@material-ui/core';
 import UserMap from './components/Map';
 import Track from './components/Track';
+import { useDispatch, useSelector } from 'react-redux';
+import { getStandPointUserAction } from '../../redux/action-creators/standPointAction';
 
-function userDashboard() {
+function UserDashboard() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getStandPointUserAction());
+  }, [dispatch]);
+
   return (
     <div>
       <Grid container>
@@ -17,4 +26,4 @@ function userDashboard() {
   );
 }
 
-export default userDashboard;
+export default UserDashboard;

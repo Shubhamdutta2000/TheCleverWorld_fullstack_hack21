@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = `http://localhost:5000`;
+const url = `http://localhost:5000/api/users`;
 
 export const getStandPoint = (bearerToken) =>
   axios.get(`${url}/get-stand-points`, {
