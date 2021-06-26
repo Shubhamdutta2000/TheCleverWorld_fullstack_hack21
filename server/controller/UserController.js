@@ -24,7 +24,11 @@ export const authUser = async (req, res) => {
       email: user.email,
       phoneNumber: user.phoneNumber,
       adhaarNumber: user.adhaarNumber,
+      isVaccinated: user.isVaccinated,
+      isRegistered: user.isRegistered,
+      isAuthority: user.isAuthority,
       geometry: user.geometry,
+      serialNumber: user.serialNumber,
       token: generateToken(user._id),
     });
   } else {

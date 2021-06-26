@@ -78,7 +78,7 @@ function Navbar() {
                 to={`/login?redirect=${
                   data
                     ? data?.isAuthority
-                      ? '/volunteer/dashboard'
+                      ? '/authority/dashboard'
                       : '/dashboard'
                     : '/dashboard'
                 }`}
@@ -114,7 +114,7 @@ function Navbar() {
                   >
                     <Link
                       to={`/login?redirect=${
-                        data.isVolunteer ? '/authority/dashboard' : '/dashboard'
+                        data.isAuthority ? '/authority/dashboard' : '/dashboard'
                       }`}
                       style={{
                         textDecoration: 'none',
