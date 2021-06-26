@@ -13,6 +13,8 @@ export const getStandPointUserAction = () => async (dispatch, getState) => {
       userLogin: { data },
     } = getState();
 
+    console.log('stand');
+
     const { data: standPointDetails } = await getStandPoint(data.token);
     console.log(standPointDetails);
 

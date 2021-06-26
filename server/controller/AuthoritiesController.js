@@ -99,12 +99,11 @@ export const createDrive = asyncHandler(async (req, res) => {
 
   // add stand points to the User model from each user in foundUsers array
   foundUsers.forEach(async (user) => {
-    // update in foundUsers array
-    user.mapViewStandPoints.push(driveStandPoints[0]._id);
-
     // update stand_point in userModel
     const foundedUser = await User.findOne(user._id);
-    foundedUser.mapViewStandPoints.push(driveStandPoints[0]._id);
+    driveStandPoints.forEach((standPoint, index) => {
+      foundedUser.mapViewStandPoints.push(driveStandPoints[index]._id);
+    });
     await foundedUser.save();
 
     // Send mail For registeration
@@ -121,6 +120,10 @@ export const createDrive = asyncHandler(async (req, res) => {
  @access  Private
  */
 export const getDriveUserData = asyncHandler(async (req, res) => {
-  const registeredUsers = await User.find({ isRegistered: true });
+  const standPointId = req.params.id;
+  const registeredUsers = await User.find({
+    isRegistered: true,
+    standPointAssigned: standPointId,
+  });
   res.status(200).send(registeredUsers);
 });
