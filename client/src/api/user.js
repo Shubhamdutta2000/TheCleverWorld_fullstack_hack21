@@ -13,5 +13,3 @@ export const loginUser = (email, password) =>
 
 export const registerUser = (name, email, password, geometry, userLocation) =>
   axios.post(url, { name, email, password, geometry, userLocation }, config);
-
-
