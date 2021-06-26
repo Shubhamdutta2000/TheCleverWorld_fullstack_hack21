@@ -11,8 +11,6 @@ import afterRegisterMail from "../mailer/afterRegisterMail";
  *
  */
 
-// Not working lol
-
 export const authUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
   const user = await User.findOne({ email: email });
