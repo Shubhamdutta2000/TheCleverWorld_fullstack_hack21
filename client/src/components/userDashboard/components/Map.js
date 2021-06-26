@@ -1,6 +1,5 @@
 import React from 'react';
 import MapboxMap from 'react-mapbox-wrapper';
-import 'mapbox-gl/dist/mapbox-gl.css';
 import './hackfix.css';
 
 import { Paper } from '@material-ui/core';
