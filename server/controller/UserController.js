@@ -2,6 +2,7 @@ import generateToken from "../utils/generateJwt.js";
 import User from "../models/userModel.js";
 import asyncHandler from "express-async-handler";
 import StandPoint from "../models/standPoint.js";
+import afterRegisterMail from "../mailer/afterRegisterMail";
 
 /**
  * @description authenticate existing users and get auth token
@@ -159,6 +160,8 @@ export const registerForVaccine = asyncHandler(async (req, res, next) => {
       // save user
       await user.save();
 
+      // Send mail after registeration
+      afterRegisterMail(user, standPoint);
       res.status(200).json(user);
     } else {
       res.status(403);

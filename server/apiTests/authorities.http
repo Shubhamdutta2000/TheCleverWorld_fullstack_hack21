@@ -40,12 +40,12 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZDZjYzdjO
 {
  "driveStandPoints" : [ 
     {
-        "_id": "60d6cc7c95ca4e18bc1a3059",
-        "name": "Baisakhi elephant statue",
-        "location": "Baisakhi Abasan, Saltlake, Sector-II",
+        "_id": "60d6cc7c95ca4e18bc1a305f",
+        "name": "FD Stand",
+        "location": "1st A Cross road, Saltlake, Sector-II, Kolkata-092",
         "geometry": {
             "type": "Point",
-            "coordinates": [88.41419219970702, 22.593092115430846]
+            "coordinates": [88.41389179229736, 22.579937025537767]
         },
         "numberOfUser": 30
     },
