@@ -60,10 +60,10 @@ export const mockUsers = [
   },
   {
     name: "Love Bird",
-    email: "lovebird.bit@gmail.com",
+    email: "frostalpha2001@gmail.com",
     password: bcrypt.hashSync("frost1234", 10),
-    adhaarNumber: 1234567890,
-    phoneNumber: 8250345696,
+    adhaarNumber: 1234567820,
+    phoneNumber: 8250345621,
     geometry: {
       type: "Point",
       coordinates: [88.41307640075684, 22.580571034588164],
@@ -71,7 +71,7 @@ export const mockUsers = [
   },
   {
     name: "Orzo Orangotang",
-    email: "orzo.bit@gmail.com",
+    email: "shubhamdutta1511@gmail.com",
     password: bcrypt.hashSync("frost1234", 10),
     adhaarNumber: 1234567890,
     phoneNumber: 9634596345,

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = `http://localhost:5000/api/users`;
+const url = `https://easyjaber-server.herokuapp.com/api/users`;
 
 export const vaccineRegistration = (preferenceId, bearerToken) =>
   axios.post(
