@@ -11,7 +11,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { LinearProgress } from '@material-ui/core';
 import { registerForVaccineAction } from '../../../redux/action-creators/registerForVaccineAction';
 import Checkbox from '@material-ui/core/Checkbox';
-
+import Road from '../../../assets/Road.png'
 function Track() {
   ///for the drop  down option
   const classes = useStyles();
@@ -105,7 +105,8 @@ function Track() {
             >
               Register
             </Button>
-          </Container>
+            <br />
+            <img src={Road} alt="Road.png" style={{height:'40%', width:'40%', position: 'absolute',zIndex:'-55', margin:'-3rem' }}/>          </Container>
         </>
       )}
     </>

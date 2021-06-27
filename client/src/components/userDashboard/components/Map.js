@@ -46,7 +46,7 @@ function UserMap() {
         <div>
           <Paper
             elevation={6}
-            style={{ width: '95%', height: '85vh', margin: '20px' }}
+            style={{ width: '97%', height: '85vh', margin: '10px' }}
           >
             {/* <MapboxMap
           accessToken="pk.eyJ1Ijoic291bWF2YSIsImEiOiJja3EwcHprYnQwN2FoMnZxaTlhdmRxeXo4In0.Y-AR1dwDNEaSKrGWrnBgzg"
