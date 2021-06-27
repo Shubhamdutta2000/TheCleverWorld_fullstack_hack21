@@ -3,31 +3,31 @@
 # Content-Type: application/json
 # Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZDZhNTliZWIzZDllMjVhMDIyNTQ4ZSIsImlhdCI6MTYyNDY3OTg5OCwiZXhwIjoxNjI0NjgzNDk4fQ.b0BUEmRXdp7bHqe-_yFivhxYX7kfOsvXWCMo2Qt9Jog
 
-# {
-#     "selectedPoints": [
-#          {
-#               "name": "xyz",
-#               "location": "abc",
-#               "geometry": {
-#                   "coordinates": [80.7397, 22.383]
-#                   }
-#          },
-#         {
-#             "name": "cde",
-#             "location": "stu",
-#             "geometry": {
-#                 "coordinates": [81.1397, 23.683]
-#                 }
-#         },
-#         {
-#             "name": "mnl",
-#             "location": "pqr",
-#             "geometry": {
-#                 "coordinates": [80.5397, 24.383]
-#                 }
-#         }
-#     ]
-# }
+{
+    "selectedPoints": [
+         {
+              "name": "xyz",
+              "location": "abc",
+              "geometry": {
+                  "coordinates": [80.7397, 22.383]
+                  }
+         },
+        {
+            "name": "cde",
+            "location": "stu",
+            "geometry": {
+                "coordinates": [81.1397, 23.683]
+                }
+        },
+        {
+            "name": "mnl",
+            "location": "pqr",
+            "geometry": {
+                "coordinates": [80.5397, 24.383]
+                }
+        }
+    ]
+}
 
 
 

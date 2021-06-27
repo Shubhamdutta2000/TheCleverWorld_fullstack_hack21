@@ -8,7 +8,6 @@ import {
 } from '../action-types/';
 
 import { getStandPoint, postStandPoint } from '../../api/standPoint';
-import { vaccineDrive } from '../../api/vaccineDrive';
 
 export const getStandPointUserAction = () => async (dispatch, getState) => {
   dispatch({ type: GET_STAND_POINT_USER_REQUEST });
@@ -48,7 +47,7 @@ export const postStandPointUserAction =
         userLogin: { data },
       } = getState();
 
-      const { data: standPointDetails } = await vaccineDrive(
+      const { data: standPointDetails } = await postStandPoint(
         driveStandPoints,
         data.token
       );
@@ -58,6 +57,12 @@ export const postStandPointUserAction =
         type: POST_STAND_POINT_AUTHORITY_SUCCESS,
         payload: standPointDetails,
       });
+
+      //   set stand-point-user in localStorage
+      localStorage.setItem(
+        'stand-point-authority',
+        JSON.stringify(standPointDetails)
+      );
     } catch (error) {
       dispatch({
         type: POST_STAND_POINT_AUTHORITY_FAILURE,
