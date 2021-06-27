@@ -35,6 +35,7 @@ function Track() {
 
   const registerForVaccineHandler = () => {
     dispatch(registerForVaccineAction(data[0]._id));
+    alert('You can Check your mail for your vaccination Details');
   };
 
   return (
