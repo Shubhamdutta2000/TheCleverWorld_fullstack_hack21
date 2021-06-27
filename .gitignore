@@ -118,3 +118,5 @@ dist
 
 # client build files
 build/
+# Local Netlify folder
+.netlify
