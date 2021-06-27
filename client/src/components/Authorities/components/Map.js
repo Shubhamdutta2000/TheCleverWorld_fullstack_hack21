@@ -232,7 +232,7 @@ const MapController = () => {
   useEffect(() => {
     /* global fetch */
     // fetch('https://docs.mapbox.com/mapbox-gl-js/assets/earthquakes.geojson')
-    fetch('http://localhost:5000/api/datapoints')
+    fetch('https://easyjaber-server.herokuapp.com/api/datapoints')
       .then((resp) => resp.json())
       .then((json) => {
         // Note: In a real application you would do a validation of JSON data before doing anything with it,
@@ -246,7 +246,7 @@ const MapController = () => {
     <>
       <Grid container>
         {/* HeatMap */}
-        <Grid item md={8} xs={8}>
+        <Grid item md={8} xs={7}>
           <Paper elevation={3} style={{ width: '98%', height: '97%' }}>
             <MapGL
               {...viewport}
@@ -327,7 +327,7 @@ const MapController = () => {
         </Grid>
 
         {/* Right Side Controller */}
-        <Grid item md={4} xs={4}>
+        <Grid item md={4} xs={5}>
           <Paper
             elevation={6}
             style={{ width: '95%', height: '50vh', margin: '10px 6px' }}

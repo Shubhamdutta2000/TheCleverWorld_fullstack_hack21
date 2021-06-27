@@ -37,6 +37,9 @@ export const signInUser = (email, password) => async (dispatch) => {
 export const signOutUser = () => async (dispatch) => {
   // logout by removing localStorage jwt
   localStorage.removeItem('userData');
+  localStorage.removeItem('stand-point-user');
+  localStorage.removeItem('stand-point-authority');
+  localStorage.removeItem('userUnderDrive');
   dispatch({ type: LOGOUT_USER });
 };
 
