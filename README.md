@@ -1,6 +1,6 @@
 # Easy Jabber
 
-[![License](https://img.shields.io/badge/License-Apache2-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0) [![Community](https://img.shields.io/badge/Join-Community-blue)](https://developer.ibm.com/callforcode/get-started/) [![Website](https://img.shields.io/badge/View-Website-blue)](https://hungrily.netlify.app/)
+[![License](https://img.shields.io/badge/License-Apache2-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0) [![Community](https://img.shields.io/badge/Join-Community-blue)](https://hackathon.ecelliiitp.org/) [![Website](https://img.shields.io/badge/View-Website-blue)](https://easyjaber-app.netlify.app/)
 
 A basic GitHub repository with documentation and code of Easy Jabber,a self-proposed solution to 2021 Hackathon conducted by IIIT PUNE. Solutions here is mainly a common platform using GeoJson to connect the Authorities(Vaccine Drive Creators/Government) and Users through a data-driven location tracking platform. This web application will enable the one in need to connect with the vaccination points in a much optimised manner.
 
