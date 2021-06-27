@@ -9,7 +9,7 @@ import Footer from './components/Footer';
 import Home from './components/Home';
 import SignIn from './components/Auth/SignIn';
 import Registration from './components/Auth/Register';
-import UserDashboard from './components/UserDashboard/';
+import UserDashboard from './components/UserDashboard';
 import Authorities from './components/Authorities';
 
 function App() {
