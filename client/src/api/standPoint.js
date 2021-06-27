@@ -1,9 +1,10 @@
 import axios from 'axios';
 
-const url = `http://localhost:5000/api/authorities`;
+const url1 = `http://localhost:5000/api/users`;
+const url2 = `http://localhost:5000/api/authorities`;
 
 export const getStandPoint = (bearerToken) =>
-  axios.get(`${url}/get-stand-points`, {
+  axios.get(`${url1}/get-stand-points`, {
     headers: {
       Authorization: `Bearer ${bearerToken}`,
     },
@@ -11,7 +12,7 @@ export const getStandPoint = (bearerToken) =>
 
 export const postStandPoint = (selectedPoints, bearerToken) =>
   axios.post(
-    `${url}/create-stand-point`,
+    `${url2}/create-stand-point`,
     { selectedPoints: selectedPoints },
     {
       headers: {
