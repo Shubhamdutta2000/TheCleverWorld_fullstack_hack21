@@ -5,6 +5,8 @@ name: Production workflow
 on:
   pull_request:
     branches: [main]
+  push:
+    branches: [main]
 
 # Jobs to carry out
 jobs:
@@ -41,4 +43,4 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         with:
-          args: deploy --dir=./frontend/build --prod
+          args: deploy --dir=./client/build --prod
