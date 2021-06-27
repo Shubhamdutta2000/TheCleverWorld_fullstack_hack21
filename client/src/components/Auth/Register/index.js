@@ -113,7 +113,7 @@ const Registration = ({ location }) => {
     <>
       <Grid container style={{ marginBottom: '6rem' }}>
         <Grid item md={7}>
-          <img src={registerSvg} style={{ height: '105%', width: '100%' }} />
+          <img src={registerSvg} style={{ height: '80%', width: '100%' }} />
         </Grid>
         <Grid item md={5}>
           <Container>
@@ -133,7 +133,7 @@ const Registration = ({ location }) => {
               </Typography>
               {error && (
                 <Alert
-                  style={{ marginTop: '8px', width: '100%' }}
+                  style={{ marginTop: '1px', width: '100%' }}
                   variant="outlined"
                   severity="error"
                 >

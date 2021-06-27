@@ -7,8 +7,6 @@ const afterRegisterMail = (user, standPoint) => {
   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
   console.log(process.env.SENDGRID_API_KEY);
 
-  // const model.id = nanoid();
-
   const msg = {
     from: "prasundas115@gmail.com",
     to: user.email,
@@ -21,38 +19,32 @@ const afterRegisterMail = (user, standPoint) => {
             
             <h3>TIME SLOTS</h3>
             <table>
-	<thead>
-		<tr>
-			<th>Age-Group</th>
-			<th>Time-range</th
-		</tr>
-	</thead>
- 
-<tr> <td>18-38</td>
-        <td>10-11</td>
-      </tr>
-
-	    
-      <tr>
-        <td>39-58</td>
-        <td>11:05-12:05</td>
-
-      </tr>
-      <tr>
-       <td>59-78</td>
-        <td>12:10-1:10</td>
-
-      </tr>
-      <tr>
-       <td>79-100</td>
-        <td>1:15-2:15</td>
-
-
-      </tr>
- 
-</tr>
-
-</table>
+              <thead>
+                <tr>
+                  <th>Age-Group</th>
+                  <th>Time-range</th
+                </tr>
+              </thead>
+            
+            <tr> <td>18-38</td>
+                    <td>10-11</td>
+                  </tr>
+                  
+                  <tr>
+                    <td>39-58</td>
+                    <td>11:05-12:05</td>
+                  </tr>
+                  <tr>
+                  <td>59-78</td>
+                    <td>12:10-1:10</td>
+                  </tr>
+                  <tr>
+                  <td>79-100</td>
+                    <td>1:15-2:15</td>
+                  </tr>
+            
+            </tr>
+         </table>
       `,
   };
   sgMail

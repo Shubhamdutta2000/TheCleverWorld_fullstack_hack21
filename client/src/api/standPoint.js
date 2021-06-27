@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const url1 = `http://localhost:5000/api/users`;
-const url2 = `http://localhost:5000/api/authorities`;
+const url1 = `https://easyjaber-server.herokuapp.com/api/users`;
+const url2 = `https://easyjaber-server.herokuapp.com/api/authorities`;
 
 export const getStandPoint = (bearerToken) =>
   axios.get(`${url1}/get-stand-points`, {

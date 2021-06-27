@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = `http://localhost:5000/api/authorities`;
+const url = `https://easyjaber-server.herokuapp.com/api/authorities`;
 
 export const vaccineDrive = (driveStandPoints, bearerToken) =>
   axios.post(

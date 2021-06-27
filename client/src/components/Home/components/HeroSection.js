@@ -12,7 +12,7 @@ const HeroSection = () => {
     <Grid container justify="space-around">
       <Grid item md={6} className={classes.leftGrid}>
         <Typography className={classes.leftHeading} variant="h3" component="h2">
-          Easy Jaber
+          Easy Jabber
         </Typography>
         <Typography className={classes.leftPara} variant="h5" component="p">
         A mobile covid vaccination strategy using mobile vans powered by real time logistics data and modular decision making framework. 

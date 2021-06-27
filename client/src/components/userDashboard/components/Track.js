@@ -11,7 +11,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { LinearProgress } from '@material-ui/core';
 import { registerForVaccineAction } from '../../../redux/action-creators/registerForVaccineAction';
 import Checkbox from '@material-ui/core/Checkbox';
-import Road from '../../../assets/Road.png'
+import Road from '../../../assets/Road.png';
 function Track() {
   ///for the drop  down option
   const classes = useStyles();
@@ -39,76 +39,81 @@ function Track() {
 
   return (
     <>
-      {data && (
-        <>
-          <br />
-          <Grid container>
-            <Grid item xs={8}>
-              <Container maxWidth="lg">
-                <Typography variant="h4">Track Your Jab</Typography>
-                <Container>
-                  <Typography variant="body1" color="secondary">
-                    Check out the current location of your vaccine van in your
-                    area. Click below to know when it will arive
-                  </Typography>
-                </Container>
-              </Container>
-              <Divider />
-            </Grid>
-            <Grid item xs={4}>
-              <LocalShippingIcon
-                color="primary"
-                style={{ height: '90%', width: '50%' }}
-              />
-            </Grid>
-          </Grid>
-          <Divider />
-
-          {/*UI TO  GUIDE USER*/}
-          <Container>
-            <Typography variant="h5">Select Your prefered location</Typography>
-
+      <br />
+      <Grid container>
+        <Grid item xs={8}>
+          <Container maxWidth="lg">
+            <Typography variant="h4">Track Your Jab</Typography>
             <Container>
-              <br />
-              <Typography variant="h6">{state.name}</Typography>
-
-              {loading ? (
-                <LinearProgress
-                  style={{ marginTop: '4px', marginBottom: '4px' }}
-                  color="primary"
-                />
-              ) : (
-                data &&
-                data.map((standPoint, index) => (
-                  <>
-                    <FormControlLabel
-                      control={
-                        <Checkbox
-                          checked={state[`checked${index}`]}
-                          onChange={handleChange}
-                          name={`checked${index}`}
-                        />
-                      }
-                      label={standPoint.location}
-                    />
-                    <br />
-                  </>
-                ))
-              )}
+              <Typography variant="body1" color="secondary">
+                Check out the current location of your vaccine van in your area.
+                Click below to know when it will arive
+              </Typography>
             </Container>
+          </Container>
+          <Divider />
+        </Grid>
+        <Grid item xs={4}>
+          <LocalShippingIcon
+            color="primary"
+            style={{ height: '90%', width: '50%' }}
+          />
+        </Grid>
+      </Grid>
+      <Divider />
 
-            <br />
-            <Button
-              onClick={registerForVaccineHandler}
-              variant="contained"
+      {/*UI TO  GUIDE USER*/}
+      <Container>
+        <Typography variant="h5">Select Your prefered location</Typography>
+        <Container>
+          <br />
+          <Typography variant="h6">{state.name}</Typography>
+
+          {loading ? (
+            <LinearProgress
+              style={{ marginTop: '4px', marginBottom: '4px' }}
               color="primary"
-            >
-              Register
-            </Button>
-            <br />
-            <img src={Road} alt="Road.png" style={{height:'40%', width:'40%', position: 'absolute',zIndex:'-55', margin:'-3rem' }}/>          </Container>
-        </>
-      )}
+            />
+          ) : (
+            data &&
+            data.map((standPoint, index) => (
+              <>
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={state[`checked${index}`]}
+                      onChange={handleChange}
+                      name={`checked${index}`}
+                    />
+                  }
+                  label={standPoint.location}
+                />
+                <br />
+              </>
+            ))
+          )}
+        </Container>
+        <br />
+        <Button
+          onClick={registerForVaccineHandler}
+          variant="contained"
+          color="primary"
+        >
+          Register
+        </Button>
+        <br />
+        <img
+          src={Road}
+          alt="Road.png"
+          style={{
+            height: '40%',
+            width: '40%',
+            position: 'absolute',
+            zIndex: '-55',
+            margin: '-3rem',
+          }}
+        />{' '}
+      </Container>
     </>
   );
 }

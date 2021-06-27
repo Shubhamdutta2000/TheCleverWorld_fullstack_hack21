@@ -232,7 +232,7 @@ const MapController = () => {
   useEffect(() => {
     /* global fetch */
     // fetch('https://docs.mapbox.com/mapbox-gl-js/assets/earthquakes.geojson')
-    fetch('http://localhost:5000/api/datapoints')
+    fetch('https://easyjaber-server.herokuapp.com/api/datapoints')
       .then((resp) => resp.json())
       .then((json) => {
         // Note: In a real application you would do a validation of JSON data before doing anything with it,
