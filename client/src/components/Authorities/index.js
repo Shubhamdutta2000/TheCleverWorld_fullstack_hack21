@@ -5,11 +5,13 @@ import Table from './components/UserRegistrationTable';
 function Authorities() {
   return (
     <div>
-      <Container>
-        {/*For map and button*/}
-        <Map />
-        <Table />
-      </Container>
+      <Grid container>
+        <Container>
+          {/*For map and button*/}
+          <Map />
+          <Table />
+        </Container>
+      </Grid>
     </div>
   );
 }

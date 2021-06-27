@@ -5,8 +5,6 @@ name: Production workflow
 on:
   pull_request:
     branches: [main]
-  push:
-    branches: [main]
 
 # Jobs to carry out
 jobs:
@@ -34,7 +32,6 @@ jobs:
         env:
           REACT_APP_MAPBOX_TOKEN: ${{ secrets.REACT_APP_MAPBOX_TOKEN }}
         run: |
-          cd client
           npm ci
           npm run build
       # Deploy to Netlify using our production secrets

@@ -244,126 +244,124 @@ const MapController = () => {
 
   return (
     <>
-      <Grid container>
-        {/* HeatMap */}
-        <Grid item md={8} xs={8}>
-          <Paper elevation={3} style={{ width: '98%', height: '97%' }}>
-            <MapGL
-              {...viewport}
-              width="100%"
-              height="100%"
-              mapStyle="mapbox://styles/mapbox/dark-v8"
-              onViewportChange={setViewport}
-              mapboxApiAccessToken="pk.eyJ1Ijoic291bWF2YSIsImEiOiJja3EwcHprYnQwN2FoMnZxaTlhdmRxeXo4In0.Y-AR1dwDNEaSKrGWrnBgzg"
-            >
-              {userDataPoint && (
-                <Source type="geojson" data={userDataPoint}>
-                  <Layer {...heatmapLayer} />
-                  <Layer {...populationDataPoint} />
-                </Source>
-              )}
-
-              {/* MARKER 1 */}
-              <Marker
-                longitude={marker.longitude}
-                latitude={marker.latitude}
-                offsetTop={-20}
-                offsetLeft={-10}
-                draggable
-                onDragStart={onMarkerDragStart}
-                onDrag={onMarkerDrag}
-                onDragEnd={onMarkerDragEnd}
-              >
-                <Pin size={30} />
-              </Marker>
-
-              {/* MARKER 2 */}
-              <Marker
-                longitude={marker2.longitude}
-                latitude={marker2.latitude}
-                offsetTop={-20}
-                offsetLeft={-10}
-                draggable
-                onDragStart={onMarkerDragStart2}
-                onDrag={onMarkerDrag2}
-                onDragEnd={onMarkerDragEnd2}
-              >
-                <Pin size={30} />
-              </Marker>
-
-              {/* MARKER 3 */}
-              <Marker
-                longitude={marker3.longitude}
-                latitude={marker3.latitude}
-                offsetTop={-20}
-                offsetLeft={-10}
-                draggable
-                onDragStart={onMarkerDragStart3}
-                onDrag={onMarkerDrag3}
-                onDragEnd={onMarkerDragEnd3}
-              >
-                <Pin size={30} />
-              </Marker>
-
-              {/* MARKER 4 */}
-              <Marker
-                longitude={marker4.longitude}
-                latitude={marker4.latitude}
-                offsetTop={-20}
-                offsetLeft={-10}
-                draggable
-                onDragStart={onMarkerDragStart4}
-                onDrag={onMarkerDrag4}
-                onDragEnd={onMarkerDragEnd4}
-              >
-                <Pin size={30} />
-              </Marker>
-
-              <div className="nav" style={navStyle}>
-                <NavigationControl />
-              </div>
-            </MapGL>
-          </Paper>
-        </Grid>
-
-        {/* Right Side Controller */}
-        <Grid item md={4} xs={4}>
-          <Paper
-            elevation={6}
-            style={{ width: '95%', height: '50vh', margin: '10px 6px' }}
+      {/* HeatMap */}
+      <Grid item md={8} xs={8}>
+        <Paper elevation={3} style={{ width: '98%', height: '97%' }}>
+          <MapGL
+            {...viewport}
+            width="100%"
+            height="100%"
+            mapStyle="mapbox://styles/mapbox/dark-v8"
+            onViewportChange={setViewport}
+            mapboxApiAccessToken="pk.eyJ1Ijoic291bWF2YSIsImEiOiJja3EwcHprYnQwN2FoMnZxaTlhdmRxeXo4In0.Y-AR1dwDNEaSKrGWrnBgzg"
           >
-            <Paper elevation={3} style={{ width: '98%', margin: '10px 3px' }}>
-              <Container>
-                <Typography variant="h5" align="center">
-                  Mapping Cordinator
-                </Typography>
-                <br />
-                <Typography variant="body1" style={{ display: 'flex' }}>
-                  <Location color="primary" /> You Have 4 Standpoints left
-                </Typography>
-                <br />
-              </Container>
-            </Paper>
-            <Button
-              color="primary"
-              onClick={addStandPoints}
-              disabled={driveStarted}
-              variant="contained"
-              style={{ width: '98%', margin: '6px 3px', padding: '9px 0' }}
+            {userDataPoint && (
+              <Source type="geojson" data={userDataPoint}>
+                <Layer {...heatmapLayer} />
+                <Layer {...populationDataPoint} />
+              </Source>
+            )}
+
+            {/* MARKER 1 */}
+            <Marker
+              longitude={marker.longitude}
+              latitude={marker.latitude}
+              offsetTop={-20}
+              offsetLeft={-10}
+              draggable
+              onDragStart={onMarkerDragStart}
+              onDrag={onMarkerDrag}
+              onDragEnd={onMarkerDragEnd}
             >
-              Update Map
-            </Button>
-            <Button
-              color="primary"
-              variant="contained"
-              style={{ width: '98%', margin: '3px 3px', padding: '9px 0' }}
-              disabled={driveStarted}
-              onClick={vaccineDriveHandler}
+              <Pin size={30} />
+            </Marker>
+
+            {/* MARKER 2 */}
+            <Marker
+              longitude={marker2.longitude}
+              latitude={marker2.latitude}
+              offsetTop={-20}
+              offsetLeft={-10}
+              draggable
+              onDragStart={onMarkerDragStart2}
+              onDrag={onMarkerDrag2}
+              onDragEnd={onMarkerDragEnd2}
             >
-              Start Drive
-            </Button>
+              <Pin size={30} />
+            </Marker>
+
+            {/* MARKER 3 */}
+            <Marker
+              longitude={marker3.longitude}
+              latitude={marker3.latitude}
+              offsetTop={-20}
+              offsetLeft={-10}
+              draggable
+              onDragStart={onMarkerDragStart3}
+              onDrag={onMarkerDrag3}
+              onDragEnd={onMarkerDragEnd3}
+            >
+              <Pin size={30} />
+            </Marker>
+
+            {/* MARKER 4 */}
+            <Marker
+              longitude={marker4.longitude}
+              latitude={marker4.latitude}
+              offsetTop={-20}
+              offsetLeft={-10}
+              draggable
+              onDragStart={onMarkerDragStart4}
+              onDrag={onMarkerDrag4}
+              onDragEnd={onMarkerDragEnd4}
+            >
+              <Pin size={30} />
+            </Marker>
+
+            <div className="nav" style={navStyle}>
+              <NavigationControl />
+            </div>
+          </MapGL>
+        </Paper>
+      </Grid>
+
+      {/* Right Side Controller */}
+      <Grid item md={4} xs={4}>
+        <Paper
+          elevation={6}
+          style={{ width: '95%', height: '50vh', margin: '10px 6px' }}
+        >
+          <Paper elevation={3} style={{ width: '98%', margin: '10px 3px' }}>
+            <Container>
+              <Typography variant="h5" align="center">
+                Mapping Cordinator
+              </Typography>
+              <br />
+              <Typography variant="body1" style={{ display: 'flex' }}>
+                <Location color="primary" /> You Have 4 Standpoints left
+              </Typography>
+              <br />
+            </Container>
           </Paper>
-        </Grid>
+          <Button
+            color="primary"
+            onClick={addStandPoints}
+            disabled={driveStarted}
+            variant="contained"
+            style={{ width: '98%', margin: '6px 3px', padding: '9px 0' }}
+          >
+            Update Map
+          </Button>
+          <Button
+            color="primary"
+            variant="contained"
+            style={{ width: '98%', margin: '3px 3px', padding: '9px 0' }}
+            disabled={driveStarted}
+            onClick={vaccineDriveHandler}
+          >
+            Start Drive
+          </Button>
+        </Paper>
       </Grid>
     </>
   );
