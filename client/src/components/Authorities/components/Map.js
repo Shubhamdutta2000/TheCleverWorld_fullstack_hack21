@@ -9,7 +9,8 @@ import Pin from './Pin';
 import axios from 'axios';
 
 import { postStandPointUserAction } from '../../../redux/action-creators/standPointAction';
-import { useDispatch } from 'react-redux';
+import { driveVaccineAction } from '../../../redux/action-creators/vaccineDriveAction';
+import { useDispatch, useSelector } from 'react-redux';
 
 const navStyle = {
   position: 'absolute',
@@ -26,6 +27,12 @@ const MapController = () => {
     bearing: 0,
     pitch: 0,
   });
+
+  const { data: usersWithinRange } = useSelector((state) => state.driveVaccine);
+
+  const [driveStarted, setDriveStarted] = useState(
+    usersWithinRange && usersWithinRange.length
+  );
 
   /////////////    Marker 1 starts      /////////////
   const [marker, setMarker] = useState({
@@ -132,7 +139,12 @@ const MapController = () => {
   // Dispatch
   const dispatch = useDispatch();
 
-  // add all markers to standPoints
+  // stand_point (after creating) Selector
+  const { data: driveStandPoints } = useSelector(
+    (state) => state.postStandPointUser
+  );
+
+  // add all markers to standPoints and add to backend
   const addStandPoints = async () => {
     console.log(marker);
     console.log(marker2);
@@ -202,6 +214,17 @@ const MapController = () => {
 
     // add standPoints data to backend
     dispatch(postStandPointUserAction(standPointsArray));
+  };
+
+  //  For Vaccine Drive
+  const vaccineDriveHandler = () => {
+    console.log(driveStandPoints);
+    if (driveStandPoints) {
+      dispatch(driveVaccineAction(driveStandPoints));
+      setDriveStarted(true);
+    } else {
+      alert('No Stand Points founded');
+    }
   };
 
   const [userDataPoint, setUserDataPoint] = useState(null);
@@ -323,18 +346,21 @@ const MapController = () => {
             </Paper>
             <Button
               color="primary"
-              variant="contained"
-              style={{ width: '98%', margin: '3px 3px', padding: '9px 0' }}
-            >
-              Start Drive
-            </Button>
-            <Button
-              color="primary"
               onClick={addStandPoints}
+              disabled={driveStarted}
               variant="contained"
               style={{ width: '98%', margin: '6px 3px', padding: '9px 0' }}
             >
               Update Map
+            </Button>
+            <Button
+              color="primary"
+              variant="contained"
+              style={{ width: '98%', margin: '3px 3px', padding: '9px 0' }}
+              disabled={driveStarted}
+              onClick={vaccineDriveHandler}
+            >
+              Start Drive
             </Button>
           </Paper>
         </Grid>

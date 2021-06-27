@@ -10,14 +10,20 @@ import TableRow from '@material-ui/core/TableRow';
 import { useStyles } from '../../../style/Authorities';
 //React components
 import { Link } from 'react-router-dom';
+// Redux
+import { useDispatch, useSelector } from 'react-redux';
 
 function UserRegistrationTable() {
+  const { data: usersWithinRange } = useSelector((state) => state.driveVaccine);
+
   const classes = useStyles();
   return (
     <div>
+      <br />
       <Typography variant="h4" align="left">
         User Registration Details
       </Typography>
+      <br />
       <Paper elevation={3} className={classes.PaperCustomers}>
         <TableContainer>
           <Table
@@ -45,24 +51,24 @@ function UserRegistrationTable() {
               </TableRow>
             </TableHead>
             <TableBody>
-              <TableRow>
-                <TableCell component="th" scope="row">
-                  Nunu Dutta
-                </TableCell>
-                <TableCell component="th" scope="row">
-                  +9169696969
-                </TableCell>
-                <TableCell component="th" scope="row">
-                  baishaki hatier niche
-                </TableCell>
-                <TableCell>
-                  69
-                </TableCell>
-                <TableCell>
-                  {' '}
-                  vaccine paini
-                </TableCell>
-              </TableRow>
+              {usersWithinRange &&
+                usersWithinRange.map((user, index) => {
+                  return (
+                    <TableRow>
+                      <TableCell component="th" scope="row">
+                        {user.name}
+                      </TableCell>
+                      <TableCell component="th" scope="row">
+                        {user.phoneNumber}
+                      </TableCell>
+                      <TableCell component="th" scope="row">
+                        {user.mapViewStandPoints[0]}
+                      </TableCell>
+                      <TableCell>{index + 1}</TableCell>
+                      <TableCell> {user.isVaccinated.toString()}</TableCell>
+                    </TableRow>
+                  );
+                })}
             </TableBody>
           </Table>
         </TableContainer>
