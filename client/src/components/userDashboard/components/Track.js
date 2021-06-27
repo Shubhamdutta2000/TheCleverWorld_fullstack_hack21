@@ -89,7 +89,7 @@ function Track() {
                           name={`checked${index}`}
                         />
                       }
-                      label={standPoint.name}
+                      label={standPoint.location}
                     />
                     <br />
                   </>
