@@ -21,7 +21,7 @@ import { Link, useHistory } from 'react-router-dom';
 
 import FormContainer from '../components/FormContainer';
 import useStyles from './style';
-import registerSvg from '../../../assets/register.svg';
+import registerSvg from '../../../assets/b.png';
 
 //Redux
 import { useDispatch, useSelector } from 'react-redux';
@@ -110,20 +110,26 @@ const Registration = ({ location }) => {
 
   return (
     <>
-      <Container>
+    <Grid container style={{marginBottom:'6rem'}}>
+    <Grid item md={7}>
+    <img src={registerSvg}  style={{height:'105%',width:'100%'}}/>
+
+    </Grid>
+    <Grid item md={5}>
+    <Container>
         {loading && (
           <LinearProgress
             style={{ marginTop: '4px', marginBottom: '4px' }}
             color="primary"
           />
         )}
-        <FormContainer image={registerSvg}>
+        
           <div className={classes.paper}>
             <Avatar className={classes.avatar}>
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
-              Register
+              CREATE NEW ACCOUNT
             </Typography>
             {error && (
               <Alert
@@ -341,8 +347,13 @@ const Registration = ({ location }) => {
               </Grid>
             </form>
           </div>
-        </FormContainer>
+       
       </Container>
+    </Grid>
+    </Grid>
+    
+     
+      
     </>
   );
 };

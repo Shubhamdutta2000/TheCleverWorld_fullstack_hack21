@@ -7,14 +7,13 @@ export default makeStyles((theme) => ({
     justifyContent: 'center',
   },
   formImage: {
-    width: '81%',
-    height: '61%',
+    width: '100%',
+    height: '100%',
     [theme.breakpoints.down('sm')]: {
       display: 'none',
     },
   },
   formElementContainer: {
-    marginTop: theme.spacing(5),
-    marginBottom: theme.spacing(5),
+
   },
 }));

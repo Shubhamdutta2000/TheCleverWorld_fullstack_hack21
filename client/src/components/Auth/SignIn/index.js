@@ -17,7 +17,7 @@ import * as yup from 'yup';
 import { useFormik } from 'formik';
 
 import useStyles from './style';
-import loginSvg from '../../../assets/login.svg';
+import loginSvg from '../../../assets/L.svg';
 import { LinearProgress } from '@material-ui/core';
 import { Alert } from '@material-ui/lab';
 
@@ -62,14 +62,14 @@ const SignIn = ({ location }) => {
 
   return (
     <>
-    <Container>
+    <Container style={{marginTop: '6rem'}}>
       {loading && (
         <LinearProgress
           style={{ marginTop: '4px', marginBottom: '4px' }}
           color="primary"
         />
       )}
-      <FormContainer image={loginSvg}>
+      <FormContainer image={loginSvg} >
         <div className={classes.paper}>
           <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
