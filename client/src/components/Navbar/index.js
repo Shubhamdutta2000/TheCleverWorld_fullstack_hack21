@@ -52,7 +52,7 @@ function Navbar() {
 
   //For media querries
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.up('md'));
+  const isNotMobile = useMediaQuery(theme.breakpoints.up('md'));
 
   return (
     <div className={classes.root}>
@@ -71,7 +71,7 @@ function Navbar() {
               />
             </Link>
           </Typography>
-          {isMobile ? (
+          {isNotMobile ? (
             <>
               {/*Nav items*/}
               <Link
@@ -166,27 +166,52 @@ function Navbar() {
                 onClose={() => setToggle(false)}
               >
                 <List className={classes.list}>
-                  <ListItem button>
-                    <Link to={'/Login'} style={{ textDecoration: 'none' }}>
-                      <ListItemText className={classes.mobilenavItems}>
-                        Login
-                      </ListItemText>
+                  {data && (
+                    <Link
+                      to={`/login?redirect=${
+                        data
+                          ? data?.isAuthority
+                            ? '/authority/dashboard'
+                            : '/dashboard'
+                          : '/dashboard'
+                      }`}
+                      style={{ textDecoration: 'none' }}
+                    >
+                      <ListItem button>
+                        <ListItemText className={classes.mobilenavItems}>
+                          Dashboard
+                        </ListItemText>
+                      </ListItem>
                     </Link>
-                  </ListItem>
-                  <ListItem button>
-                    <Link to="/register" style={{ textDecoration: 'none' }}>
-                      <ListItemText className={classes.mobilenavItems}>
-                        Register
-                      </ListItemText>
+                  )}
+
+                  {!data ? (
+                    <>
+                      <Link to={'/login'} style={{ textDecoration: 'none' }}>
+                        <ListItem button>
+                          <ListItemText className={classes.mobilenavItems}>
+                            Login
+                          </ListItemText>
+                        </ListItem>
+                      </Link>
+
+                      <Link to="/register" style={{ textDecoration: 'none' }}>
+                        <ListItem button>
+                          <ListItemText className={classes.mobilenavItems}>
+                            Register
+                          </ListItemText>
+                        </ListItem>
+                      </Link>
+                    </>
+                  ) : (
+                    <Link to="/" style={{ textDecoration: 'none' }}>
+                      <ListItem button onClick={logoutUser}>
+                        <ListItemText className={classes.mobilenavItems}>
+                          Logout
+                        </ListItemText>
+                      </ListItem>
                     </Link>
-                  </ListItem>
-                  <ListItem button>
-                    <Link to="/Dashboard" style={{ textDecoration: 'none' }}>
-                      <ListItemText className={classes.mobilenavItems}>
-                        Dashboard
-                      </ListItemText>
-                    </Link>
-                  </ListItem>
+                  )}
                 </List>
               </Drawer>
             </>
