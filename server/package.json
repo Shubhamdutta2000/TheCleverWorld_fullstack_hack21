@@ -22,7 +22,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.12.14",
     "morgan": "^1.10.0",
-    "nanoid": "^3.1.23",
+    "nanoid": "^3.1.31",
     "node": "^16.3.0"
   },
   "devDependencies": {
